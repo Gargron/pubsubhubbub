@@ -6,7 +6,7 @@ require 'pubsubhubbub/version'
 
 # Describe your gem and declare its dependencies:
 Gem::Specification.new do |s|
-  s.name        = 'pubsubhubbub'
+  s.name        = 'pubsubhubbub-rails'
   s.version     = Pubsubhubbub::VERSION
   s.authors     = ['Eugen Rochko']
   s.email       = ['eugen@zeonfederated.com']

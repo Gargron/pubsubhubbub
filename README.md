@@ -1,5 +1,11 @@
 # Pubsubhubbub
 
+[![Gem Version](http://img.shields.io/gem/v/pubsubhubbub-rails.svg)][gem]
+[![Dependency Status](http://img.shields.io/gemnasium/Gargron/pubsubhubbub-rails.svg)][gemnasium]
+
+[gem]: https://rubygems.org/gems/pubsubhubbub-rails
+[gemnasium]: https://gemnasium.com/Gargron/pubsubhubbub-rails
+
 This is a mountable PubSubHubbub server conforming to the v0.4 of the spec.
 
 ## Usage
@@ -16,7 +22,7 @@ In feed:
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'pubsubhubbub'
+gem 'pubsubhubbub-rails'
 ```
 
 And then execute:
@@ -26,7 +32,7 @@ $ bundle
 
 Or install it yourself as:
 ```bash
-$ gem install pubsubhubbub
+$ gem install pubsubhubbub-rails
 ```
 
 ## License
