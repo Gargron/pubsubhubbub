@@ -1,8 +1,16 @@
 # Pubsubhubbub
-Short description and motivation.
+
+This is a mountable PubSubHubbub server conforming to the v0.4 of the spec.
 
 ## Usage
-How to use my plugin.
+
+In `routes.rb`:
+
+    mount Pubsubhubbub::Engine => '/pubsubhubbub', as: :pubsubhubbub
+
+In feed:
+
+    <link rel="hub" href="<%= pubsubhubbub_hub_url %>" />
 
 ## Installation
 Add this line to your application's Gemfile:
@@ -20,9 +28,6 @@ Or install it yourself as:
 ```bash
 $ gem install pubsubhubbub
 ```
-
-## Contributing
-Contribution directions go here.
 
 ## License
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
