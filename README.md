@@ -1,10 +1,10 @@
 # Pubsubhubbub
 
 [![Gem Version](http://img.shields.io/gem/v/pubsubhubbub-rails.svg)][gem]
-[![Dependency Status](http://img.shields.io/gemnasium/Gargron/pubsubhubbub-rails.svg)][gemnasium]
+[![Dependency Status](http://img.shields.io/gemnasium/Gargron/pubsubhubbub.svg)][gemnasium]
 
 [gem]: https://rubygems.org/gems/pubsubhubbub-rails
-[gemnasium]: https://gemnasium.com/Gargron/pubsubhubbub-rails
+[gemnasium]: https://gemnasium.com/Gargron/pubsubhubbub
 
 This is a mountable PubSubHubbub server conforming to the v0.4 of the spec.
 
