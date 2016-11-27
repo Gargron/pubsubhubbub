@@ -12,17 +12,17 @@ This is a mountable PubSubHubbub server conforming to the v0.4 of the spec.
 
 In `routes.rb`:
 
-    mount Pubsubhubbub::Engine => '/pubsubhubbub', as: :pubsubhubbub
+    mount Pubsubhubbub::Engine, at: 'pubsubhubbub', as: :pubsubhubbub
 
 In feed:
 
-    <link rel="hub" href="<%= pubsubhubbub_hub_url %>" />
+    <link rel="hub" href="<%= pubsubhubbub_url %>" />
 
 ## Installation
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'pubsubhubbub-rails'
+gem 'pubsubhubbub-rails', require: 'pubsubhubbub'
 ```
 
 And then execute:
