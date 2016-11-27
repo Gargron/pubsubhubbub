@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    pubsubhubbub-rails (0.2.4)
+    pubsubhubbub-rails (0.2.6)
       addressable (~> 2.4)
       http (~> 2.0)
       link_header (~> 0.0)
@@ -53,7 +53,6 @@ GEM
     ast (2.3.0)
     builder (3.2.2)
     coderay (1.1.1)
-    colorize (0.8.1)
     concurrent-ruby (1.0.2)
     crack (0.4.3)
       safe_yaml (~> 1.0.0)
@@ -76,8 +75,6 @@ GEM
       domain_name (~> 0.5)
     http-form_data (1.0.1)
     http_parser.rb (0.6.0)
-    httplog (0.3.2)
-      colorize
     i18n (0.7.0)
     link_header (0.0.8)
     loofah (2.0.3)
@@ -189,7 +186,6 @@ PLATFORMS
 
 DEPENDENCIES
   fuubar
-  httplog
   pry-rails
   pubsubhubbub-rails!
   rspec-rails

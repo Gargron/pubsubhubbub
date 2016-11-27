@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 module Pubsubhubbub
   class FetchTopicJob < ApplicationJob
+    include Pubsubhubbub::Utils
+
     queue_as :push
 
     def perform(hub_url, url)
@@ -9,7 +11,7 @@ module Pubsubhubbub
       current_payload = if Pubsubhubbub.render_topic.is_a?(Proc)
                           Pubsubhubbub.render_topic.call(url)
                         else
-                          HTTP.timeout(:per_operation, write: 60, connect: 20, read: 60).get(url).body.to_s
+                          http_client.get(url).body.to_s
                         end
 
       Subscription.where(topic: url).active.find_each do |subscription|

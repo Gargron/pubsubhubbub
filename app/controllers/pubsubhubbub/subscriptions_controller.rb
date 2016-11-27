@@ -3,6 +3,8 @@ require_dependency 'pubsubhubbub/application_controller'
 
 module Pubsubhubbub
   class SubscriptionsController < ApplicationController
+    include Pubsubhubbub::Utils
+
     rescue_from ValidationError do |msg|
       render plain: msg, status: :unprocessable_entity
     end
@@ -33,7 +35,7 @@ module Pubsubhubbub
       return Pubsubhubbub.verify_topic.call(@topic) if Pubsubhubbub.verify_topic.is_a?(Proc)
 
       uri      = Addressable::URI.parse(@topic)
-      response = HTTP.get(uri)
+      response = http_client.get(uri)
 
       if response['Link']
         link  = LinkHeader.parse(response['Link'].is_a?(Array) ? response['Link'].first : response['Link'])
