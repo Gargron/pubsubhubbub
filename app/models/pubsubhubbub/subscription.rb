@@ -14,11 +14,16 @@ module Pubsubhubbub
     end
 
     before_validation :generate_challenge
+    before_validation :set_min_expiration
 
     private
 
     def generate_challenge
       self.challenge = SecureRandom.hex
+    end
+
+    def set_min_expiration
+      self.lease_seconds = 0 unless expires_at
     end
   end
 end

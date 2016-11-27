@@ -22,8 +22,4 @@ Gem::Specification.new do |s|
   s.add_dependency 'http', '~> 2.0'
   s.add_dependency 'nokogiri', '~> 1.4'
   s.add_dependency 'link_header', '~> 0.0'
-
-  s.add_development_dependency 'sqlite3'
-  s.add_development_dependency 'pry-rails'
-  s.add_development_dependency 'httplog'
 end

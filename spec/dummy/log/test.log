@@ -1,0 +1,1064 @@
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+------------------------------
+Pubsubhubbub::Test: test_truth
+------------------------------
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (95.5ms)[0m  [1m[35mCREATE TABLE "pubsubhubbub_subscriptions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "topic" varchar DEFAULT '' NOT NULL, "callback" varchar DEFAULT '' NOT NULL, "challenge" varchar DEFAULT '' NOT NULL, "secret" varchar, "confirmed" boolean DEFAULT 'f' NOT NULL, "expires_at" datetime NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mselect sqlite_version(*)[0m
+  [1m[35m (91.7ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_pubsubhubbub_subscriptions_on_topic_and_callback" ON "pubsubhubbub_subscriptions" ("topic", "callback")[0m
+  [1m[35m (75.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (51.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES ('20161126203748')[0m
+  [1m[35m (56.6ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "test"], ["created_at", 2016-11-26 21:50:57 UTC], ["updated_at", 2016-11-26 21:50:57 UTC]]
+  [1m[35m (74.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "pubsubhubbub_subscriptions"[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "pubsubhubbub_subscriptions"[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "pubsubhubbub_subscriptions"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "pubsubhubbub_subscriptions" ("topic", "callback", "challenge", "secret", "created_at", "updated_at", "id") VALUES ('https://mastodon.social/users/Gargron.atom', 'https://kickass.zone/api/subscriptions/2', '12345678', 'poopfeast420', '2016-11-26 22:00:54.302781', '2016-11-26 22:00:54.302781', 980190962)[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "pubsubhubbub_subscriptions"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "pubsubhubbub_subscriptions" ("topic", "callback", "challenge", "secret", "expires_at", "created_at", "updated_at", "id") VALUES ('https://mastodon.social/users/Gargron.atom', 'https://kickass.zone/api/subscriptions/2', '12345678', 'poopfeast420', '2016-11-26 21:37:48', '2016-11-26 22:01:29.101590', '2016-11-26 22:01:29.101590', 980190962)[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "pubsubhubbub_subscriptions" ("topic", "callback", "challenge", "expires_at", "created_at", "updated_at", "id") VALUES ('https://mastodon.social/users/slimekat.atom', 'https://kickass.zone/api/subscriptions/3', '90123456', '2016-11-26 21:37:48', '2016-11-26 22:01:29.101590', '2016-11-26 22:01:29.101590', 298486374)[0m
+  [1m[35m (86.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+------------------------------
+Pubsubhubbub::Test: test_truth
+------------------------------
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "pubsubhubbub_subscriptions"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "pubsubhubbub_subscriptions" ("topic", "callback", "challenge", "secret", "expires_at", "created_at", "updated_at", "id") VALUES ('https://mastodon.social/users/Gargron.atom', 'https://kickass.zone/api/subscriptions/2', '12345678', 'poopfeast420', '2016-11-26 21:37:48', '2016-11-26 22:20:07.304495', '2016-11-26 22:20:07.304495', 980190962)[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "pubsubhubbub_subscriptions" ("topic", "callback", "challenge", "expires_at", "created_at", "updated_at", "id") VALUES ('https://mastodon.social/users/slimekat.atom', 'https://kickass.zone/api/subscriptions/3', '90123456', '2016-11-26 21:37:48', '2016-11-26 22:20:07.304495', '2016-11-26 22:20:07.304495', 298486374)[0m
+  [1m[35m (39.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+------------------------------
+Pubsubhubbub::Test: test_truth
+------------------------------
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------------------------------------------------
+Pubsubhubbub::SubscriptionsControllerTest: test_POST_with_hub.mode=publish
+--------------------------------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+------------------------------------------------------------------------------
+Pubsubhubbub::SubscriptionsControllerTest: test_POST_with_hub.mode=unsubscribe
+------------------------------------------------------------------------------
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------------------------------------
+Pubsubhubbub::SubscriptionsControllerTest: test_POST_with_hub.mode=subscribe
+----------------------------------------------------------------------------
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Processing by Pubsubhubbub::SubscriptionsController#index as HTML
+  Parameters: {"hub.mode"=>"subscribe"}
+  Rendering text template
+  Rendered text template (0.0ms)
+Completed 422 Unprocessable Entity in 16ms (Views: 15.9ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Processing by Pubsubhubbub::SubscriptionsController#index as HTML
+  Parameters: {"hub.mode"=>"unsubscribe"}
+  Rendering text template
+  Rendered text template (0.0ms)
+Completed 422 Unprocessable Entity in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Processing by Pubsubhubbub::SubscriptionsController#index as HTML
+  Parameters: {"hub.mode"=>"publish"}
+  Rendering text template
+  Rendered text template (0.0ms)
+Completed 422 Unprocessable Entity in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Processing by Pubsubhubbub::SubscriptionsController#index as HTML
+  Parameters: {"hub.mode"=>"subscribe"}
+  Rendering text template
+  Rendered text template (0.0ms)
+Completed 422 Unprocessable Entity in 2ms (Views: 2.0ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Processing by Pubsubhubbub::SubscriptionsController#index as HTML
+  Parameters: {"hub.mode"=>"unsubscribe"}
+  Rendering text template
+  Rendered text template (0.0ms)
+Completed 422 Unprocessable Entity in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Processing by Pubsubhubbub::SubscriptionsController#index as HTML
+  Parameters: {"hub.mode"=>"publish"}
+  Rendering text template
+  Rendered text template (0.0ms)
+Completed 422 Unprocessable Entity in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Processing by Pubsubhubbub::SubscriptionsController#index as HTML
+  Parameters: {"hub.mode"=>"subscribe"}
+  Rendering text template
+  Rendered text template (0.0ms)
+Completed 422 Unprocessable Entity in 2ms (Views: 2.3ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Processing by Pubsubhubbub::SubscriptionsController#index as HTML
+  Parameters: {"hub.mode"=>"unsubscribe"}
+  Rendering text template
+  Rendered text template (0.0ms)
+Completed 422 Unprocessable Entity in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Processing by Pubsubhubbub::SubscriptionsController#index as HTML
+  Parameters: {"hub.mode"=>"publish", "hub.url"=>"http://example.com/feed"}
+[ActiveJob] Enqueued Pubsubhubbub::FetchTopicJob (Job ID: 1faee615-8fa4-44c7-8e05-46ee0dbe5f15) to Async(push) with arguments: "http://test.host/pubsubhubbub/", "http://example.com/feed"
+Completed 202 Accepted in 1ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Processing by Pubsubhubbub::SubscriptionsController#index as HTML
+  Parameters: {"hub.mode"=>"publish", "hub.url"=>"http://example.com/feed"}
+[ActiveJob] Enqueued Pubsubhubbub::FetchTopicJob (Job ID: c3a8d572-1d41-454c-b763-01b1be3dd83f) to Async(push) with arguments: "http://test.host/pubsubhubbub/", "http://example.com/feed"
+Completed 202 Accepted in 1ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Processing by Pubsubhubbub::SubscriptionsController#index as HTML
+  Parameters: {"hub.mode"=>"unsubscribe"}
+  Rendering text template
+  Rendered text template (0.0ms)
+[ActiveJob] [Pubsubhubbub::FetchTopicJob] [c3a8d572-1d41-454c-b763-01b1be3dd83f] Performing Pubsubhubbub::FetchTopicJob from Async(push) with arguments: "http://test.host/pubsubhubbub/", "http://example.com/feed"
+Completed 422 Unprocessable Entity in 3ms (Views: 3.2ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Processing by Pubsubhubbub::SubscriptionsController#index as HTML
+  Parameters: {"hub.mode"=>"subscribe"}
+  Rendering text template
+  Rendered text template (0.0ms)
+Completed 422 Unprocessable Entity in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+[ActiveJob] [Pubsubhubbub::FetchTopicJob] [c3a8d572-1d41-454c-b763-01b1be3dd83f] Performed Pubsubhubbub::FetchTopicJob from Async(push) in 67.15ms
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Processing by Pubsubhubbub::SubscriptionsController#index as HTML
+  Parameters: {"hub.mode"=>"publish", "hub.url"=>"http://example.com/feed"}
+[ActiveJob] [Pubsubhubbub::FetchTopicJob] [c3ca6faa-5200-45bc-bbe8-66b8ed895a94] Performing Pubsubhubbub::FetchTopicJob from Async(push) with arguments: "http://test.host/pubsubhubbub/", "http://example.com/feed"
+[ActiveJob] Enqueued Pubsubhubbub::FetchTopicJob (Job ID: c3ca6faa-5200-45bc-bbe8-66b8ed895a94) to Async(push) with arguments: "http://test.host/pubsubhubbub/", "http://example.com/feed"
+Completed 202 Accepted in 3ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Processing by Pubsubhubbub::SubscriptionsController#index as HTML
+  Parameters: {"hub.callback"=>"http://example.com/callback", "hub.mode"=>"unsubscribe", "hub.topic"=>"http://example.com/feed"}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+[ActiveJob] [Pubsubhubbub::FetchTopicJob] [c3ca6faa-5200-45bc-bbe8-66b8ed895a94]   [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "pubsubhubbub_subscriptions" WHERE "pubsubhubbub_subscriptions"."topic" = ? AND "pubsubhubbub_subscriptions"."confirmed" = ? AND (expires_at > '2016-11-27 11:03:49.466732')[0m  [["topic", "http://example.com/feed"], ["confirmed", true]]
+[ActiveJob] [Pubsubhubbub::FetchTopicJob] [c3ca6faa-5200-45bc-bbe8-66b8ed895a94] Performed Pubsubhubbub::FetchTopicJob from Async(push) in 54.55ms
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Processing by Pubsubhubbub::SubscriptionsController#index as HTML
+  Parameters: {"hub.mode"=>"subscribe"}
+  Rendering text template
+  Rendered text template (0.0ms)
+Completed 422 Unprocessable Entity in 2ms (Views: 2.1ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Processing by Pubsubhubbub::SubscriptionsController#index as HTML
+  Parameters: {"hub.callback"=>"http://example.com/callback", "hub.mode"=>"subscribe", "hub.topic"=>"http://example.com/feed"}
+Completed 500 Internal Server Error in 37ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Processing by Pubsubhubbub::SubscriptionsController#index as HTML
+  Parameters: {"hub.callback"=>"http://example.com/callback", "hub.mode"=>"unsubscribe", "hub.topic"=>"http://example.com/feed"}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Processing by Pubsubhubbub::SubscriptionsController#index as HTML
+  Parameters: {"hub.mode"=>"publish", "hub.url"=>"http://example.com/feed"}
+[ActiveJob] [Pubsubhubbub::FetchTopicJob] [894a431f-890e-437f-bba7-71b3270b2c20] Performing Pubsubhubbub::FetchTopicJob from Async(push) with arguments: "http://test.host/pubsubhubbub/", "http://example.com/feed"
+[ActiveJob] Enqueued Pubsubhubbub::FetchTopicJob (Job ID: 894a431f-890e-437f-bba7-71b3270b2c20) to Async(push) with arguments: "http://test.host/pubsubhubbub/", "http://example.com/feed"
+Completed 202 Accepted in 4ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+[ActiveJob] [Pubsubhubbub::FetchTopicJob] [894a431f-890e-437f-bba7-71b3270b2c20] Performed Pubsubhubbub::FetchTopicJob from Async(push) in 4.88ms
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Processing by Pubsubhubbub::SubscriptionsController#index as HTML
+  Parameters: {"hub.callback"=>"http://example.com/callback", "hub.mode"=>"unsubscribe", "hub.topic"=>"http://example.com/feed"}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Processing by Pubsubhubbub::SubscriptionsController#index as HTML
+  Parameters: {"hub.callback"=>"http://example.com/callback", "hub.mode"=>"subscribe", "hub.topic"=>"http://example.com/feed"}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Processing by Pubsubhubbub::SubscriptionsController#index as HTML
+  Parameters: {"hub.mode"=>"publish", "hub.url"=>"http://example.com/feed"}
+[ActiveJob] [Pubsubhubbub::FetchTopicJob] [4f2f70f2-1e28-4c5b-83e6-248eb8c9a15c] Performing Pubsubhubbub::FetchTopicJob from Async(push) with arguments: "http://test.host/pubsubhubbub/", "http://example.com/feed"
+[ActiveJob] Enqueued Pubsubhubbub::FetchTopicJob (Job ID: 4f2f70f2-1e28-4c5b-83e6-248eb8c9a15c) to Async(push) with arguments: "http://test.host/pubsubhubbub/", "http://example.com/feed"
+Completed 202 Accepted in 2ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+[ActiveJob] [Pubsubhubbub::FetchTopicJob] [4f2f70f2-1e28-4c5b-83e6-248eb8c9a15c]   [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "pubsubhubbub_subscriptions" WHERE "pubsubhubbub_subscriptions"."topic" = ? AND "pubsubhubbub_subscriptions"."confirmed" = ? AND (expires_at > '2016-11-27 11:09:16.736309')[0m  [["topic", "http://example.com/feed"], ["confirmed", true]]
+[ActiveJob] [Pubsubhubbub::FetchTopicJob] [4f2f70f2-1e28-4c5b-83e6-248eb8c9a15c] Performed Pubsubhubbub::FetchTopicJob from Async(push) in 7.35ms
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Processing by Pubsubhubbub::SubscriptionsController#index as HTML
+  Parameters: {"hub.callback"=>"http://example.com/callback", "hub.mode"=>"subscribe", "hub.topic"=>"http://example.com/feed"}
+  Rendering text template
+  Rendered text template (0.0ms)
+Completed 422 Unprocessable Entity in 5ms (Views: 2.3ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Processing by Pubsubhubbub::SubscriptionsController#index as HTML
+  Parameters: {"hub.mode"=>"publish", "hub.url"=>"http://example.com/feed"}
+[ActiveJob] [Pubsubhubbub::FetchTopicJob] [70b8824d-ce6a-475b-8fa9-98d0f6784c6e] Performing Pubsubhubbub::FetchTopicJob from Async(push) with arguments: "http://test.host/pubsubhubbub/", "http://example.com/feed"
+[ActiveJob] Enqueued Pubsubhubbub::FetchTopicJob (Job ID: 70b8824d-ce6a-475b-8fa9-98d0f6784c6e) to Async(push) with arguments: "http://test.host/pubsubhubbub/", "http://example.com/feed"
+Completed 202 Accepted in 2ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Processing by Pubsubhubbub::SubscriptionsController#index as HTML
+  Parameters: {"hub.callback"=>"http://example.com/callback", "hub.mode"=>"unsubscribe", "hub.topic"=>"http://example.com/feed"}
+  Rendering text template
+  Rendered text template (0.0ms)
+Completed 422 Unprocessable Entity in 2ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+[ActiveJob] [Pubsubhubbub::FetchTopicJob] [70b8824d-ce6a-475b-8fa9-98d0f6784c6e]   [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "pubsubhubbub_subscriptions" WHERE "pubsubhubbub_subscriptions"."topic" = ? AND "pubsubhubbub_subscriptions"."confirmed" = ? AND (expires_at > '2016-11-27 11:10:43.779116')[0m  [["topic", "http://example.com/feed"], ["confirmed", true]]
+[ActiveJob] [Pubsubhubbub::FetchTopicJob] [70b8824d-ce6a-475b-8fa9-98d0f6784c6e] Performed Pubsubhubbub::FetchTopicJob from Async(push) in 10.8ms
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Processing by Pubsubhubbub::SubscriptionsController#index as HTML
+  Parameters: {"hub.callback"=>"http://example.com/callback", "hub.mode"=>"unsubscribe", "hub.topic"=>"http://example.com/feed"}
+  Rendering text template
+  Rendered text template (0.0ms)
+Completed 422 Unprocessable Entity in 5ms (Views: 2.6ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Processing by Pubsubhubbub::SubscriptionsController#index as HTML
+  Parameters: {"hub.callback"=>"http://example.com/callback", "hub.mode"=>"subscribe", "hub.topic"=>"http://example.com/feed"}
+  Rendering text template
+  Rendered text template (0.0ms)
+Completed 422 Unprocessable Entity in 2ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Processing by Pubsubhubbub::SubscriptionsController#index as HTML
+  Parameters: {"hub.mode"=>"publish", "hub.url"=>"http://example.com/feed"}
+[ActiveJob] [Pubsubhubbub::FetchTopicJob] [474b7049-60b2-4520-b5d7-c955d87aa1bf] Performing Pubsubhubbub::FetchTopicJob from Async(push) with arguments: "http://test.host/pubsubhubbub/", "http://example.com/feed"
+[ActiveJob] Enqueued Pubsubhubbub::FetchTopicJob (Job ID: 474b7049-60b2-4520-b5d7-c955d87aa1bf) to Async(push) with arguments: "http://test.host/pubsubhubbub/", "http://example.com/feed"
+Completed 202 Accepted in 3ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+[ActiveJob] [Pubsubhubbub::FetchTopicJob] [474b7049-60b2-4520-b5d7-c955d87aa1bf]   [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "pubsubhubbub_subscriptions" WHERE "pubsubhubbub_subscriptions"."topic" = ? AND "pubsubhubbub_subscriptions"."confirmed" = ? AND (expires_at > '2016-11-27 11:11:51.535983')[0m  [["topic", "http://example.com/feed"], ["confirmed", true]]
+[ActiveJob] [Pubsubhubbub::FetchTopicJob] [474b7049-60b2-4520-b5d7-c955d87aa1bf] Performed Pubsubhubbub::FetchTopicJob from Async(push) in 6.82ms
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Processing by Pubsubhubbub::SubscriptionsController#index as HTML
+  Parameters: {"hub.callback"=>"http://example.com/callback", "hub.mode"=>"subscribe", "hub.topic"=>"http://example.com/feed"}
+  Rendering text template
+  Rendered text template (0.0ms)
+Completed 422 Unprocessable Entity in 4ms (Views: 2.0ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Processing by Pubsubhubbub::SubscriptionsController#index as HTML
+  Parameters: {"hub.callback"=>"http://example.com/callback", "hub.mode"=>"unsubscribe", "hub.topic"=>"http://example.com/feed"}
+  Rendering text template
+  Rendered text template (0.0ms)
+Completed 422 Unprocessable Entity in 2ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Processing by Pubsubhubbub::SubscriptionsController#index as HTML
+  Parameters: {"hub.mode"=>"publish", "hub.url"=>"http://example.com/feed"}
+[ActiveJob] [Pubsubhubbub::FetchTopicJob] [26a6beeb-d763-4121-bd8a-74bcc95d244a] Performing Pubsubhubbub::FetchTopicJob from Async(push) with arguments: "http://test.host/pubsubhubbub/", "http://example.com/feed"
+[ActiveJob] Enqueued Pubsubhubbub::FetchTopicJob (Job ID: 26a6beeb-d763-4121-bd8a-74bcc95d244a) to Async(push) with arguments: "http://test.host/pubsubhubbub/", "http://example.com/feed"
+Completed 202 Accepted in 3ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+[ActiveJob] [Pubsubhubbub::FetchTopicJob] [26a6beeb-d763-4121-bd8a-74bcc95d244a] Performed Pubsubhubbub::FetchTopicJob from Async(push) in 5.83ms
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Processing by Pubsubhubbub::SubscriptionsController#index as HTML
+  Parameters: {"hub.mode"=>"publish", "hub.url"=>"http://example.com/feed"}
+[ActiveJob] [Pubsubhubbub::FetchTopicJob] [bb4e3d58-34ea-45bc-b827-5dcb70feaaae] Performing Pubsubhubbub::FetchTopicJob from Async(push) with arguments: "http://test.host/pubsubhubbub/", "http://example.com/feed"
+[ActiveJob] Enqueued Pubsubhubbub::FetchTopicJob (Job ID: bb4e3d58-34ea-45bc-b827-5dcb70feaaae) to Async(push) with arguments: "http://test.host/pubsubhubbub/", "http://example.com/feed"
+Completed 202 Accepted in 2ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Processing by Pubsubhubbub::SubscriptionsController#index as HTML
+  Parameters: {"hub.callback"=>"http://example.com/callback", "hub.mode"=>"subscribe", "hub.topic"=>"http://example.com/feed"}
+  Rendering text template
+  Rendered text template (0.0ms)
+[ActiveJob] [Pubsubhubbub::FetchTopicJob] [bb4e3d58-34ea-45bc-b827-5dcb70feaaae]   [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "pubsubhubbub_subscriptions" WHERE "pubsubhubbub_subscriptions"."topic" = ? AND "pubsubhubbub_subscriptions"."confirmed" = ? AND (expires_at > '2016-11-27 11:12:37.565074')[0m  [["topic", "http://example.com/feed"], ["confirmed", true]]
+Completed 422 Unprocessable Entity in 9ms (Views: 6.9ms | ActiveRecord: 0.0ms)
+[ActiveJob] [Pubsubhubbub::FetchTopicJob] [bb4e3d58-34ea-45bc-b827-5dcb70feaaae] Performed Pubsubhubbub::FetchTopicJob from Async(push) in 12.26ms
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Processing by Pubsubhubbub::SubscriptionsController#index as HTML
+  Parameters: {"hub.callback"=>"http://example.com/callback", "hub.mode"=>"unsubscribe", "hub.topic"=>"http://example.com/feed"}
+  Rendering text template
+  Rendered text template (0.0ms)
+Completed 422 Unprocessable Entity in 2ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Processing by Pubsubhubbub::SubscriptionsController#index as HTML
+  Parameters: {"hub.mode"=>"publish", "hub.url"=>"http://example.com/feed"}
+[ActiveJob] [Pubsubhubbub::FetchTopicJob] [356dd428-740e-4c89-9f32-d605b57a10c8] Performing Pubsubhubbub::FetchTopicJob from Async(push) with arguments: "http://test.host/pubsubhubbub/", "http://example.com/feed"
+[ActiveJob] Enqueued Pubsubhubbub::FetchTopicJob (Job ID: 356dd428-740e-4c89-9f32-d605b57a10c8) to Async(push) with arguments: "http://test.host/pubsubhubbub/", "http://example.com/feed"
+Completed 202 Accepted in 3ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+[ActiveJob] [Pubsubhubbub::FetchTopicJob] [356dd428-740e-4c89-9f32-d605b57a10c8]   [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "pubsubhubbub_subscriptions" WHERE "pubsubhubbub_subscriptions"."topic" = ? AND "pubsubhubbub_subscriptions"."confirmed" = ? AND (expires_at > '2016-11-27 11:13:09.710975')[0m  [["topic", "http://example.com/feed"], ["confirmed", true]]
+[ActiveJob] [Pubsubhubbub::FetchTopicJob] [356dd428-740e-4c89-9f32-d605b57a10c8] Performed Pubsubhubbub::FetchTopicJob from Async(push) in 6.38ms
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Processing by Pubsubhubbub::SubscriptionsController#index as HTML
+  Parameters: {"hub.callback"=>"http://example.com/callback", "hub.mode"=>"unsubscribe", "hub.topic"=>"http://example.com/feed"}
+  [1m[36mPubsubhubbub::Subscription Load (0.1ms)[0m  [1m[34mSELECT  "pubsubhubbub_subscriptions".* FROM "pubsubhubbub_subscriptions" WHERE "pubsubhubbub_subscriptions"."topic" = ? AND "pubsubhubbub_subscriptions"."callback" = ? ORDER BY "pubsubhubbub_subscriptions"."id" ASC LIMIT ?[0m  [["topic", "http://example.com/feed"], ["callback", "http://example.com/callback"], ["LIMIT", 1]]
+No template found for Pubsubhubbub::SubscriptionsController#index, rendering head :no_content
+Completed 204 No Content in 8ms (ActiveRecord: 0.3ms)
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Processing by Pubsubhubbub::SubscriptionsController#index as HTML
+  Parameters: {"hub.callback"=>"http://example.com/callback", "hub.mode"=>"subscribe", "hub.topic"=>"http://example.com/feed"}
+  [1m[36mPubsubhubbub::Subscription Load (0.1ms)[0m  [1m[34mSELECT  "pubsubhubbub_subscriptions".* FROM "pubsubhubbub_subscriptions" WHERE "pubsubhubbub_subscriptions"."topic" = ? AND "pubsubhubbub_subscriptions"."callback" = ? ORDER BY "pubsubhubbub_subscriptions"."id" ASC LIMIT ?[0m  [["topic", "http://example.com/feed"], ["callback", "http://example.com/callback"], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.2ms)
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Processing by Pubsubhubbub::SubscriptionsController#index as HTML
+  Parameters: {"hub.mode"=>"publish", "hub.url"=>"http://example.com/feed"}
+[ActiveJob] [Pubsubhubbub::FetchTopicJob] [1ebf41a9-86bb-4f83-891c-a96c14262360] Performing Pubsubhubbub::FetchTopicJob from Async(push) with arguments: "http://test.host/pubsubhubbub/", "http://example.com/feed"
+[ActiveJob] Enqueued Pubsubhubbub::FetchTopicJob (Job ID: 1ebf41a9-86bb-4f83-891c-a96c14262360) to Async(push) with arguments: "http://test.host/pubsubhubbub/", "http://example.com/feed"
+Completed 202 Accepted in 4ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Processing by Pubsubhubbub::SubscriptionsController#index as HTML
+  Parameters: {"hub.callback"=>"http://example.com/callback", "hub.mode"=>"subscribe", "hub.topic"=>"http://example.com/feed"}
+  [1m[36mPubsubhubbub::Subscription Load (0.1ms)[0m  [1m[34mSELECT  "pubsubhubbub_subscriptions".* FROM "pubsubhubbub_subscriptions" WHERE "pubsubhubbub_subscriptions"."topic" = ? AND "pubsubhubbub_subscriptions"."callback" = ? ORDER BY "pubsubhubbub_subscriptions"."id" ASC LIMIT ?[0m  [["topic", "http://example.com/feed"], ["callback", "http://example.com/callback"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[ActiveJob] [Pubsubhubbub::FetchTopicJob] [1ebf41a9-86bb-4f83-891c-a96c14262360]   [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "pubsubhubbub_subscriptions" WHERE "pubsubhubbub_subscriptions"."topic" = ? AND "pubsubhubbub_subscriptions"."confirmed" = ? AND (expires_at > '2016-11-27 11:13:54.662164')[0m  [["topic", "http://example.com/feed"], ["confirmed", true]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "pubsubhubbub_subscriptions" ("topic", "callback", "mode", "challenge", "expires_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["topic", "http://example.com/feed"], ["callback", "http://example.com/callback"], ["mode", "subscribe"], ["challenge", "ce151400053ecc87fb3a5f03291b5d48"], ["expires_at", 2016-11-28 11:13:54 UTC], ["created_at", 2016-11-27 11:13:54 UTC], ["updated_at", 2016-11-27 11:13:54 UTC]]
+[ActiveJob] [Pubsubhubbub::FetchTopicJob] [1ebf41a9-86bb-4f83-891c-a96c14262360] Performed Pubsubhubbub::FetchTopicJob from Async(push) in 20.86ms
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[ActiveJob] Enqueued Pubsubhubbub::VerifyIntentJob (Job ID: efbb2b3f-b4e9-4c75-ac51-4803dc7217cf) to Async(push) with arguments: 1
+Completed 202 Accepted in 18ms (ActiveRecord: 0.8ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+[ActiveJob] [Pubsubhubbub::VerifyIntentJob] [efbb2b3f-b4e9-4c75-ac51-4803dc7217cf] Performing Pubsubhubbub::VerifyIntentJob from Async(push) with arguments: 1
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+[ActiveJob] [Pubsubhubbub::VerifyIntentJob] [efbb2b3f-b4e9-4c75-ac51-4803dc7217cf]   [1m[36mPubsubhubbub::Subscription Load (0.1ms)[0m  [1m[34mSELECT  "pubsubhubbub_subscriptions".* FROM "pubsubhubbub_subscriptions" WHERE "pubsubhubbub_subscriptions"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Processing by Pubsubhubbub::SubscriptionsController#index as HTML
+[ActiveJob] [Pubsubhubbub::VerifyIntentJob] [efbb2b3f-b4e9-4c75-ac51-4803dc7217cf] Performed Pubsubhubbub::VerifyIntentJob from Async(push) in 2.63ms
+  Parameters: {"hub.callback"=>"http://example.com/callback", "hub.mode"=>"unsubscribe", "hub.topic"=>"http://example.com/feed"}
+  [1m[36mPubsubhubbub::Subscription Load (0.0ms)[0m  [1m[34mSELECT  "pubsubhubbub_subscriptions".* FROM "pubsubhubbub_subscriptions" WHERE "pubsubhubbub_subscriptions"."topic" = ? AND "pubsubhubbub_subscriptions"."callback" = ? ORDER BY "pubsubhubbub_subscriptions"."id" ASC LIMIT ?[0m  [["topic", "http://example.com/feed"], ["callback", "http://example.com/callback"], ["LIMIT", 1]]
+No template found for Pubsubhubbub::SubscriptionsController#index, rendering head :no_content
+Completed 204 No Content in 7ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Processing by Pubsubhubbub::SubscriptionsController#index as HTML
+  Parameters: {"hub.callback"=>"http://example.com/callback", "hub.mode"=>"unsubscribe", "hub.topic"=>"http://example.com/feed"}
+  [1m[36mPubsubhubbub::Subscription Load (0.2ms)[0m  [1m[34mSELECT  "pubsubhubbub_subscriptions".* FROM "pubsubhubbub_subscriptions" WHERE "pubsubhubbub_subscriptions"."topic" = ? AND "pubsubhubbub_subscriptions"."callback" = ? ORDER BY "pubsubhubbub_subscriptions"."id" ASC LIMIT ?[0m  [["topic", "http://example.com/feed"], ["callback", "http://example.com/callback"], ["LIMIT", 1]]
+No template found for Pubsubhubbub::SubscriptionsController#index, rendering head :no_content
+Completed 204 No Content in 14ms (ActiveRecord: 0.8ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Processing by Pubsubhubbub::SubscriptionsController#index as HTML
+  Parameters: {"hub.mode"=>"publish", "hub.url"=>"http://example.com/feed"}
+[ActiveJob] [Pubsubhubbub::FetchTopicJob] [3325e18b-d735-4611-9dd0-1f76477d936c] Performing Pubsubhubbub::FetchTopicJob from Inline(push) with arguments: "http://test.host/pubsubhubbub/", "http://example.com/feed"
+[ActiveJob] [Pubsubhubbub::FetchTopicJob] [3325e18b-d735-4611-9dd0-1f76477d936c]   [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "pubsubhubbub_subscriptions" WHERE "pubsubhubbub_subscriptions"."topic" = ? AND "pubsubhubbub_subscriptions"."confirmed" = ? AND (expires_at > '2016-11-27 11:15:48.773828')[0m  [["topic", "http://example.com/feed"], ["confirmed", true]]
+[ActiveJob] [Pubsubhubbub::FetchTopicJob] [3325e18b-d735-4611-9dd0-1f76477d936c] Performed Pubsubhubbub::FetchTopicJob from Inline(push) in 3.67ms
+[ActiveJob] Enqueued Pubsubhubbub::FetchTopicJob (Job ID: 3325e18b-d735-4611-9dd0-1f76477d936c) to Inline(push) with arguments: "http://test.host/pubsubhubbub/", "http://example.com/feed"
+Completed 202 Accepted in 7ms (ActiveRecord: 0.2ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Processing by Pubsubhubbub::SubscriptionsController#index as HTML
+  Parameters: {"hub.callback"=>"http://example.com/callback", "hub.mode"=>"subscribe", "hub.topic"=>"http://example.com/feed"}
+  [1m[36mPubsubhubbub::Subscription Load (0.1ms)[0m  [1m[34mSELECT  "pubsubhubbub_subscriptions".* FROM "pubsubhubbub_subscriptions" WHERE "pubsubhubbub_subscriptions"."topic" = ? AND "pubsubhubbub_subscriptions"."callback" = ? ORDER BY "pubsubhubbub_subscriptions"."id" ASC LIMIT ?[0m  [["topic", "http://example.com/feed"], ["callback", "http://example.com/callback"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "pubsubhubbub_subscriptions" ("topic", "callback", "mode", "challenge", "expires_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["topic", "http://example.com/feed"], ["callback", "http://example.com/callback"], ["mode", "subscribe"], ["challenge", "610b86c3e148afecbcf53b12864784fa"], ["expires_at", 2016-11-28 11:15:48 UTC], ["created_at", 2016-11-27 11:15:48 UTC], ["updated_at", 2016-11-27 11:15:48 UTC]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[ActiveJob] [Pubsubhubbub::VerifyIntentJob] [80e1d038-c38a-48f7-b8d7-7e1b53e89d6e] Performing Pubsubhubbub::VerifyIntentJob from Inline(push) with arguments: 1
+[ActiveJob] [Pubsubhubbub::VerifyIntentJob] [80e1d038-c38a-48f7-b8d7-7e1b53e89d6e]   [1m[36mPubsubhubbub::Subscription Load (0.1ms)[0m  [1m[34mSELECT  "pubsubhubbub_subscriptions".* FROM "pubsubhubbub_subscriptions" WHERE "pubsubhubbub_subscriptions"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[ActiveJob] [Pubsubhubbub::VerifyIntentJob] [80e1d038-c38a-48f7-b8d7-7e1b53e89d6e] Performed Pubsubhubbub::VerifyIntentJob from Inline(push) in 4.62ms
+Completed 500 Internal Server Error in 20ms (ActiveRecord: 0.5ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Processing by Pubsubhubbub::SubscriptionsController#index as HTML
+  Parameters: {"hub.callback"=>"http://example.com/callback", "hub.mode"=>"unsubscribe", "hub.topic"=>"http://example.com/feed"}
+  [1m[36mPubsubhubbub::Subscription Load (0.1ms)[0m  [1m[34mSELECT  "pubsubhubbub_subscriptions".* FROM "pubsubhubbub_subscriptions" WHERE "pubsubhubbub_subscriptions"."topic" = ? AND "pubsubhubbub_subscriptions"."callback" = ? ORDER BY "pubsubhubbub_subscriptions"."id" ASC LIMIT ?[0m  [["topic", "http://example.com/feed"], ["callback", "http://example.com/callback"], ["LIMIT", 1]]
+No template found for Pubsubhubbub::SubscriptionsController#index, rendering head :no_content
+Completed 204 No Content in 11ms (ActiveRecord: 0.4ms)
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Processing by Pubsubhubbub::SubscriptionsController#index as HTML
+  Parameters: {"hub.mode"=>"publish", "hub.url"=>"http://example.com/feed"}
+[ActiveJob] [Pubsubhubbub::FetchTopicJob] [013dc4b4-2921-498a-b98e-b0ba2df0200e] Performing Pubsubhubbub::FetchTopicJob from Inline(push) with arguments: "http://test.host/pubsubhubbub/", "http://example.com/feed"
+[ActiveJob] [Pubsubhubbub::FetchTopicJob] [013dc4b4-2921-498a-b98e-b0ba2df0200e]   [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "pubsubhubbub_subscriptions" WHERE "pubsubhubbub_subscriptions"."topic" = ? AND "pubsubhubbub_subscriptions"."confirmed" = ? AND (expires_at > '2016-11-27 11:18:40.329320')[0m  [["topic", "http://example.com/feed"], ["confirmed", true]]
+[ActiveJob] [Pubsubhubbub::FetchTopicJob] [013dc4b4-2921-498a-b98e-b0ba2df0200e] Performed Pubsubhubbub::FetchTopicJob from Inline(push) in 2.99ms
+[ActiveJob] Enqueued Pubsubhubbub::FetchTopicJob (Job ID: 013dc4b4-2921-498a-b98e-b0ba2df0200e) to Inline(push) with arguments: "http://test.host/pubsubhubbub/", "http://example.com/feed"
+Completed 202 Accepted in 5ms (ActiveRecord: 0.1ms)
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Processing by Pubsubhubbub::SubscriptionsController#index as HTML
+  Parameters: {"hub.callback"=>"http://example.com/callback", "hub.mode"=>"subscribe", "hub.topic"=>"http://example.com/feed"}
+  [1m[36mPubsubhubbub::Subscription Load (0.0ms)[0m  [1m[34mSELECT  "pubsubhubbub_subscriptions".* FROM "pubsubhubbub_subscriptions" WHERE "pubsubhubbub_subscriptions"."topic" = ? AND "pubsubhubbub_subscriptions"."callback" = ? ORDER BY "pubsubhubbub_subscriptions"."id" ASC LIMIT ?[0m  [["topic", "http://example.com/feed"], ["callback", "http://example.com/callback"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "pubsubhubbub_subscriptions" ("topic", "callback", "mode", "challenge", "expires_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["topic", "http://example.com/feed"], ["callback", "http://example.com/callback"], ["mode", "subscribe"], ["challenge", "018405872f5ecac99cd7baf011667046"], ["expires_at", 2016-11-28 11:18:40 UTC], ["created_at", 2016-11-27 11:18:40 UTC], ["updated_at", 2016-11-27 11:18:40 UTC]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[ActiveJob] [Pubsubhubbub::VerifyIntentJob] [927c7abc-0f12-4f3c-a903-0745ebbf45f1] Performing Pubsubhubbub::VerifyIntentJob from Inline(push) with arguments: 1
+[ActiveJob] [Pubsubhubbub::VerifyIntentJob] [927c7abc-0f12-4f3c-a903-0745ebbf45f1]   [1m[36mPubsubhubbub::Subscription Load (0.1ms)[0m  [1m[34mSELECT  "pubsubhubbub_subscriptions".* FROM "pubsubhubbub_subscriptions" WHERE "pubsubhubbub_subscriptions"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[ActiveJob] [Pubsubhubbub::VerifyIntentJob] [927c7abc-0f12-4f3c-a903-0745ebbf45f1] Performed Pubsubhubbub::VerifyIntentJob from Inline(push) in 3.63ms
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 0.3ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Processing by Pubsubhubbub::SubscriptionsController#index as HTML
+  Parameters: {"hub.callback"=>"http://example.com/callback", "hub.mode"=>"unsubscribe", "hub.topic"=>"http://example.com/feed"}
+  [1m[36mPubsubhubbub::Subscription Load (0.1ms)[0m  [1m[34mSELECT  "pubsubhubbub_subscriptions".* FROM "pubsubhubbub_subscriptions" WHERE "pubsubhubbub_subscriptions"."topic" = ? AND "pubsubhubbub_subscriptions"."callback" = ? ORDER BY "pubsubhubbub_subscriptions"."id" ASC LIMIT ?[0m  [["topic", "http://example.com/feed"], ["callback", "http://example.com/callback"], ["LIMIT", 1]]
+No template found for Pubsubhubbub::SubscriptionsController#index, rendering head :no_content
+Completed 204 No Content in 11ms (ActiveRecord: 0.5ms)
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Processing by Pubsubhubbub::SubscriptionsController#index as HTML
+  Parameters: {"hub.callback"=>"http://example.com/callback", "hub.mode"=>"subscribe", "hub.topic"=>"http://example.com/feed"}
+  [1m[36mPubsubhubbub::Subscription Load (0.0ms)[0m  [1m[34mSELECT  "pubsubhubbub_subscriptions".* FROM "pubsubhubbub_subscriptions" WHERE "pubsubhubbub_subscriptions"."topic" = ? AND "pubsubhubbub_subscriptions"."callback" = ? ORDER BY "pubsubhubbub_subscriptions"."id" ASC LIMIT ?[0m  [["topic", "http://example.com/feed"], ["callback", "http://example.com/callback"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "pubsubhubbub_subscriptions" ("topic", "callback", "mode", "challenge", "expires_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["topic", "http://example.com/feed"], ["callback", "http://example.com/callback"], ["mode", "subscribe"], ["challenge", "2ab86bd666e8f85aa47cc64721b5daec"], ["expires_at", 2016-11-28 11:18:53 UTC], ["created_at", 2016-11-27 11:18:53 UTC], ["updated_at", 2016-11-27 11:18:53 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[ActiveJob] [Pubsubhubbub::VerifyIntentJob] [634a1ab5-9451-4584-8980-cb0babd26c56] Performing Pubsubhubbub::VerifyIntentJob from Inline(push) with arguments: 1
+[ActiveJob] [Pubsubhubbub::VerifyIntentJob] [634a1ab5-9451-4584-8980-cb0babd26c56]   [1m[36mPubsubhubbub::Subscription Load (0.1ms)[0m  [1m[34mSELECT  "pubsubhubbub_subscriptions".* FROM "pubsubhubbub_subscriptions" WHERE "pubsubhubbub_subscriptions"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[ActiveJob] [Pubsubhubbub::VerifyIntentJob] [634a1ab5-9451-4584-8980-cb0babd26c56] Performed Pubsubhubbub::VerifyIntentJob from Inline(push) in 5.8ms
+Completed 500 Internal Server Error in 19ms (ActiveRecord: 0.4ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Processing by Pubsubhubbub::SubscriptionsController#index as HTML
+  Parameters: {"hub.mode"=>"publish", "hub.url"=>"http://example.com/feed"}
+[ActiveJob] [Pubsubhubbub::FetchTopicJob] [c8f5c364-295c-4927-8925-3a4ac2bf1bc1] Performing Pubsubhubbub::FetchTopicJob from Inline(push) with arguments: "http://test.host/pubsubhubbub/", "http://example.com/feed"
+[ActiveJob] [Pubsubhubbub::FetchTopicJob] [c8f5c364-295c-4927-8925-3a4ac2bf1bc1]   [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "pubsubhubbub_subscriptions" WHERE "pubsubhubbub_subscriptions"."topic" = ? AND "pubsubhubbub_subscriptions"."confirmed" = ? AND (expires_at > '2016-11-27 11:18:53.305363')[0m  [["topic", "http://example.com/feed"], ["confirmed", true]]
+[ActiveJob] [Pubsubhubbub::FetchTopicJob] [c8f5c364-295c-4927-8925-3a4ac2bf1bc1] Performed Pubsubhubbub::FetchTopicJob from Inline(push) in 1.04ms
+[ActiveJob] Enqueued Pubsubhubbub::FetchTopicJob (Job ID: c8f5c364-295c-4927-8925-3a4ac2bf1bc1) to Inline(push) with arguments: "http://test.host/pubsubhubbub/", "http://example.com/feed"
+Completed 202 Accepted in 2ms (ActiveRecord: 0.1ms)
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Processing by Pubsubhubbub::SubscriptionsController#index as HTML
+  Parameters: {"hub.callback"=>"http://example.com/callback", "hub.mode"=>"unsubscribe", "hub.topic"=>"http://example.com/feed"}
+  [1m[36mPubsubhubbub::Subscription Load (0.1ms)[0m  [1m[34mSELECT  "pubsubhubbub_subscriptions".* FROM "pubsubhubbub_subscriptions" WHERE "pubsubhubbub_subscriptions"."topic" = ? AND "pubsubhubbub_subscriptions"."callback" = ? ORDER BY "pubsubhubbub_subscriptions"."id" ASC LIMIT ?[0m  [["topic", "http://example.com/feed"], ["callback", "http://example.com/callback"], ["LIMIT", 1]]
+No template found for Pubsubhubbub::SubscriptionsController#index, rendering head :no_content
+Completed 204 No Content in 12ms (ActiveRecord: 0.6ms)
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Processing by Pubsubhubbub::SubscriptionsController#index as HTML
+  Parameters: {"hub.mode"=>"publish", "hub.url"=>"http://example.com/feed"}
+[ActiveJob] [Pubsubhubbub::FetchTopicJob] [f2f10432-8777-4c9e-9965-5148d0330eca] Performing Pubsubhubbub::FetchTopicJob from Inline(push) with arguments: "http://test.host/pubsubhubbub/", "http://example.com/feed"
+[ActiveJob] [Pubsubhubbub::FetchTopicJob] [f2f10432-8777-4c9e-9965-5148d0330eca]   [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "pubsubhubbub_subscriptions" WHERE "pubsubhubbub_subscriptions"."topic" = ? AND "pubsubhubbub_subscriptions"."confirmed" = ? AND (expires_at > '2016-11-27 11:20:02.182839')[0m  [["topic", "http://example.com/feed"], ["confirmed", true]]
+[ActiveJob] [Pubsubhubbub::FetchTopicJob] [f2f10432-8777-4c9e-9965-5148d0330eca] Performed Pubsubhubbub::FetchTopicJob from Inline(push) in 2.95ms
+[ActiveJob] Enqueued Pubsubhubbub::FetchTopicJob (Job ID: f2f10432-8777-4c9e-9965-5148d0330eca) to Inline(push) with arguments: "http://test.host/pubsubhubbub/", "http://example.com/feed"
+Completed 202 Accepted in 5ms (ActiveRecord: 0.1ms)
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Processing by Pubsubhubbub::SubscriptionsController#index as HTML
+  Parameters: {"hub.callback"=>"http://example.com/callback", "hub.mode"=>"subscribe", "hub.topic"=>"http://example.com/feed"}
+  [1m[36mPubsubhubbub::Subscription Load (0.1ms)[0m  [1m[34mSELECT  "pubsubhubbub_subscriptions".* FROM "pubsubhubbub_subscriptions" WHERE "pubsubhubbub_subscriptions"."topic" = ? AND "pubsubhubbub_subscriptions"."callback" = ? ORDER BY "pubsubhubbub_subscriptions"."id" ASC LIMIT ?[0m  [["topic", "http://example.com/feed"], ["callback", "http://example.com/callback"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "pubsubhubbub_subscriptions" ("topic", "callback", "mode", "challenge", "expires_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["topic", "http://example.com/feed"], ["callback", "http://example.com/callback"], ["mode", "subscribe"], ["challenge", "0ebbeebbd32c160c2b8319621af8c518"], ["expires_at", 2016-11-28 11:20:02 UTC], ["created_at", 2016-11-27 11:20:02 UTC], ["updated_at", 2016-11-27 11:20:02 UTC]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[ActiveJob] [Pubsubhubbub::VerifyIntentJob] [3d1b77b4-c5be-4bfa-b129-5234b8d7cbff] Performing Pubsubhubbub::VerifyIntentJob from Inline(push) with arguments: 1
+[ActiveJob] [Pubsubhubbub::VerifyIntentJob] [3d1b77b4-c5be-4bfa-b129-5234b8d7cbff]   [1m[36mPubsubhubbub::Subscription Load (0.1ms)[0m  [1m[34mSELECT  "pubsubhubbub_subscriptions".* FROM "pubsubhubbub_subscriptions" WHERE "pubsubhubbub_subscriptions"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[ActiveJob] [Pubsubhubbub::VerifyIntentJob] [3d1b77b4-c5be-4bfa-b129-5234b8d7cbff] Performed Pubsubhubbub::VerifyIntentJob from Inline(push) in 3.17ms
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 0.3ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Processing by Pubsubhubbub::SubscriptionsController#index as HTML
+  Parameters: {"hub.callback"=>"http://example.com/callback", "hub.mode"=>"subscribe", "hub.topic"=>"http://example.com/feed"}
+  [1m[36mPubsubhubbub::Subscription Load (0.1ms)[0m  [1m[34mSELECT  "pubsubhubbub_subscriptions".* FROM "pubsubhubbub_subscriptions" WHERE "pubsubhubbub_subscriptions"."topic" = ? AND "pubsubhubbub_subscriptions"."callback" = ? ORDER BY "pubsubhubbub_subscriptions"."id" ASC LIMIT ?[0m  [["topic", "http://example.com/feed"], ["callback", "http://example.com/callback"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "pubsubhubbub_subscriptions" ("topic", "callback", "mode", "challenge", "expires_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["topic", "http://example.com/feed"], ["callback", "http://example.com/callback"], ["mode", "subscribe"], ["challenge", "84e0263b2ccd07fe6562828639cb24b9"], ["expires_at", 2016-11-28 11:20:20 UTC], ["created_at", 2016-11-27 11:20:20 UTC], ["updated_at", 2016-11-27 11:20:20 UTC]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[ActiveJob] [Pubsubhubbub::VerifyIntentJob] [c772682e-9f4c-4f34-b951-2a0d3f70e5f3] Performing Pubsubhubbub::VerifyIntentJob from Inline(push) with arguments: 1
+[ActiveJob] [Pubsubhubbub::VerifyIntentJob] [c772682e-9f4c-4f34-b951-2a0d3f70e5f3]   [1m[36mPubsubhubbub::Subscription Load (0.1ms)[0m  [1m[34mSELECT  "pubsubhubbub_subscriptions".* FROM "pubsubhubbub_subscriptions" WHERE "pubsubhubbub_subscriptions"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[ActiveJob] [Pubsubhubbub::VerifyIntentJob] [c772682e-9f4c-4f34-b951-2a0d3f70e5f3] Performed Pubsubhubbub::VerifyIntentJob from Inline(push) in 128838.71ms
+Completed 500 Internal Server Error in 128850ms (ActiveRecord: 0.7ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Processing by Pubsubhubbub::SubscriptionsController#index as HTML
+  Parameters: {"hub.callback"=>"http://example.com/callback", "hub.mode"=>"unsubscribe", "hub.topic"=>"http://example.com/feed"}
+  [1m[36mPubsubhubbub::Subscription Load (0.0ms)[0m  [1m[34mSELECT  "pubsubhubbub_subscriptions".* FROM "pubsubhubbub_subscriptions" WHERE "pubsubhubbub_subscriptions"."topic" = ? AND "pubsubhubbub_subscriptions"."callback" = ? ORDER BY "pubsubhubbub_subscriptions"."id" ASC LIMIT ?[0m  [["topic", "http://example.com/feed"], ["callback", "http://example.com/callback"], ["LIMIT", 1]]
+No template found for Pubsubhubbub::SubscriptionsController#index, rendering head :no_content
+Completed 204 No Content in 7ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Processing by Pubsubhubbub::SubscriptionsController#index as HTML
+  Parameters: {"hub.mode"=>"publish", "hub.url"=>"http://example.com/feed"}
+[ActiveJob] [Pubsubhubbub::FetchTopicJob] [58bd613a-477a-43cf-94cc-555358d6e840] Performing Pubsubhubbub::FetchTopicJob from Inline(push) with arguments: "http://test.host/pubsubhubbub/", "http://example.com/feed"
+[ActiveJob] [Pubsubhubbub::FetchTopicJob] [58bd613a-477a-43cf-94cc-555358d6e840]   [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "pubsubhubbub_subscriptions" WHERE "pubsubhubbub_subscriptions"."topic" = ? AND "pubsubhubbub_subscriptions"."confirmed" = ? AND (expires_at > '2016-11-27 11:22:29.249320')[0m  [["topic", "http://example.com/feed"], ["confirmed", true]]
+[ActiveJob] [Pubsubhubbub::FetchTopicJob] [58bd613a-477a-43cf-94cc-555358d6e840] Performed Pubsubhubbub::FetchTopicJob from Inline(push) in 0.91ms
+[ActiveJob] Enqueued Pubsubhubbub::FetchTopicJob (Job ID: 58bd613a-477a-43cf-94cc-555358d6e840) to Inline(push) with arguments: "http://test.host/pubsubhubbub/", "http://example.com/feed"
+Completed 202 Accepted in 2ms (ActiveRecord: 0.1ms)
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Processing by Pubsubhubbub::SubscriptionsController#index as HTML
+  Parameters: {"hub.callback"=>"http://example.com/callback", "hub.mode"=>"unsubscribe", "hub.topic"=>"http://example.com/feed"}
+  [1m[36mPubsubhubbub::Subscription Load (0.1ms)[0m  [1m[34mSELECT  "pubsubhubbub_subscriptions".* FROM "pubsubhubbub_subscriptions" WHERE "pubsubhubbub_subscriptions"."topic" = ? AND "pubsubhubbub_subscriptions"."callback" = ? ORDER BY "pubsubhubbub_subscriptions"."id" ASC LIMIT ?[0m  [["topic", "http://example.com/feed"], ["callback", "http://example.com/callback"], ["LIMIT", 1]]
+No template found for Pubsubhubbub::SubscriptionsController#index, rendering head :no_content
+Completed 204 No Content in 11ms (ActiveRecord: 0.4ms)
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Processing by Pubsubhubbub::SubscriptionsController#index as HTML
+  Parameters: {"hub.mode"=>"publish", "hub.url"=>"http://example.com/feed"}
+[ActiveJob] [Pubsubhubbub::FetchTopicJob] [6bd3d627-5bb6-4800-a563-4cb66b9d2f4e] Performing Pubsubhubbub::FetchTopicJob from Inline(push) with arguments: "http://test.host/pubsubhubbub/", "http://example.com/feed"
+[ActiveJob] [Pubsubhubbub::FetchTopicJob] [6bd3d627-5bb6-4800-a563-4cb66b9d2f4e]   [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "pubsubhubbub_subscriptions" WHERE "pubsubhubbub_subscriptions"."topic" = ? AND "pubsubhubbub_subscriptions"."confirmed" = ? AND (expires_at > '2016-11-27 11:22:31.379077')[0m  [["topic", "http://example.com/feed"], ["confirmed", true]]
+[ActiveJob] [Pubsubhubbub::FetchTopicJob] [6bd3d627-5bb6-4800-a563-4cb66b9d2f4e] Performed Pubsubhubbub::FetchTopicJob from Inline(push) in 2.83ms
+[ActiveJob] Enqueued Pubsubhubbub::FetchTopicJob (Job ID: 6bd3d627-5bb6-4800-a563-4cb66b9d2f4e) to Inline(push) with arguments: "http://test.host/pubsubhubbub/", "http://example.com/feed"
+Completed 202 Accepted in 5ms (ActiveRecord: 0.1ms)
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Processing by Pubsubhubbub::SubscriptionsController#index as HTML
+  Parameters: {"hub.callback"=>"http://example.com/callback", "hub.mode"=>"subscribe", "hub.topic"=>"http://example.com/feed"}
+  [1m[36mPubsubhubbub::Subscription Load (0.1ms)[0m  [1m[34mSELECT  "pubsubhubbub_subscriptions".* FROM "pubsubhubbub_subscriptions" WHERE "pubsubhubbub_subscriptions"."topic" = ? AND "pubsubhubbub_subscriptions"."callback" = ? ORDER BY "pubsubhubbub_subscriptions"."id" ASC LIMIT ?[0m  [["topic", "http://example.com/feed"], ["callback", "http://example.com/callback"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "pubsubhubbub_subscriptions" ("topic", "callback", "mode", "challenge", "expires_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["topic", "http://example.com/feed"], ["callback", "http://example.com/callback"], ["mode", "subscribe"], ["challenge", "be3823b2893c15aa1e4b40e595da71a5"], ["expires_at", 2016-11-28 11:22:31 UTC], ["created_at", 2016-11-27 11:22:31 UTC], ["updated_at", 2016-11-27 11:22:31 UTC]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[ActiveJob] [Pubsubhubbub::VerifyIntentJob] [689b150b-3992-4b6d-8946-54150a74fca4] Performing Pubsubhubbub::VerifyIntentJob from Inline(push) with arguments: 1
+[ActiveJob] [Pubsubhubbub::VerifyIntentJob] [689b150b-3992-4b6d-8946-54150a74fca4]   [1m[36mPubsubhubbub::Subscription Load (0.1ms)[0m  [1m[34mSELECT  "pubsubhubbub_subscriptions".* FROM "pubsubhubbub_subscriptions" WHERE "pubsubhubbub_subscriptions"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[ActiveJob] [Pubsubhubbub::VerifyIntentJob] [689b150b-3992-4b6d-8946-54150a74fca4] Performed Pubsubhubbub::VerifyIntentJob from Inline(push) in 3.16ms
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 0.3ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Processing by Pubsubhubbub::SubscriptionsController#index as HTML
+  Parameters: {"hub.mode"=>"publish", "hub.url"=>"http://example.com/feed"}
+[ActiveJob] [Pubsubhubbub::FetchTopicJob] [dd355d82-5ef1-4cf8-bd8c-4d2416e3fa00] Performing Pubsubhubbub::FetchTopicJob from Inline(push) with arguments: "http://test.host/pubsubhubbub/", "http://example.com/feed"
+[ActiveJob] [Pubsubhubbub::FetchTopicJob] [dd355d82-5ef1-4cf8-bd8c-4d2416e3fa00]   [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "pubsubhubbub_subscriptions" WHERE "pubsubhubbub_subscriptions"."topic" = ? AND "pubsubhubbub_subscriptions"."confirmed" = ? AND (expires_at > '2016-11-27 11:24:02.410836')[0m  [["topic", "http://example.com/feed"], ["confirmed", true]]
+[ActiveJob] [Pubsubhubbub::FetchTopicJob] [dd355d82-5ef1-4cf8-bd8c-4d2416e3fa00] Performed Pubsubhubbub::FetchTopicJob from Inline(push) in 4.78ms
+[ActiveJob] Enqueued Pubsubhubbub::FetchTopicJob (Job ID: dd355d82-5ef1-4cf8-bd8c-4d2416e3fa00) to Inline(push) with arguments: "http://test.host/pubsubhubbub/", "http://example.com/feed"
+Completed 202 Accepted in 6ms (ActiveRecord: 0.2ms)
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Processing by Pubsubhubbub::SubscriptionsController#index as HTML
+  Parameters: {"hub.callback"=>"http://example.com/callback", "hub.mode"=>"subscribe", "hub.topic"=>"http://example.com/feed"}
+  [1m[36mPubsubhubbub::Subscription Load (0.1ms)[0m  [1m[34mSELECT  "pubsubhubbub_subscriptions".* FROM "pubsubhubbub_subscriptions" WHERE "pubsubhubbub_subscriptions"."topic" = ? AND "pubsubhubbub_subscriptions"."callback" = ? ORDER BY "pubsubhubbub_subscriptions"."id" ASC LIMIT ?[0m  [["topic", "http://example.com/feed"], ["callback", "http://example.com/callback"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "pubsubhubbub_subscriptions" ("topic", "callback", "mode", "challenge", "expires_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["topic", "http://example.com/feed"], ["callback", "http://example.com/callback"], ["mode", "subscribe"], ["challenge", "9b281f2341fba4331ed7feb6c615bb7c"], ["expires_at", 2016-11-28 11:24:02 UTC], ["created_at", 2016-11-27 11:24:02 UTC], ["updated_at", 2016-11-27 11:24:02 UTC]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[ActiveJob] [Pubsubhubbub::VerifyIntentJob] [69e2c1cc-47b8-4149-943d-e8237f2edd1d] Performing Pubsubhubbub::VerifyIntentJob from Inline(push) with arguments: 1
+[ActiveJob] [Pubsubhubbub::VerifyIntentJob] [69e2c1cc-47b8-4149-943d-e8237f2edd1d]   [1m[36mPubsubhubbub::Subscription Load (0.1ms)[0m  [1m[34mSELECT  "pubsubhubbub_subscriptions".* FROM "pubsubhubbub_subscriptions" WHERE "pubsubhubbub_subscriptions"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[ActiveJob] [Pubsubhubbub::VerifyIntentJob] [69e2c1cc-47b8-4149-943d-e8237f2edd1d]   [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[ActiveJob] [Pubsubhubbub::VerifyIntentJob] [69e2c1cc-47b8-4149-943d-e8237f2edd1d]   [1m[35mSQL (0.1ms)[0m  [1m[33mUPDATE "pubsubhubbub_subscriptions" SET "challenge" = ?, "confirmed" = ?, "updated_at" = ? WHERE "pubsubhubbub_subscriptions"."id" = ?[0m  [["challenge", "54945a6b2d304299c2c1b5dcf1b74a35"], ["confirmed", true], ["updated_at", 2016-11-27 11:24:02 UTC], ["id", 1]]
+[ActiveJob] [Pubsubhubbub::VerifyIntentJob] [69e2c1cc-47b8-4149-943d-e8237f2edd1d]   [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[ActiveJob] [Pubsubhubbub::VerifyIntentJob] [69e2c1cc-47b8-4149-943d-e8237f2edd1d] Performed Pubsubhubbub::VerifyIntentJob from Inline(push) in 5.41ms
+[ActiveJob] Enqueued Pubsubhubbub::VerifyIntentJob (Job ID: 69e2c1cc-47b8-4149-943d-e8237f2edd1d) to Inline(push) with arguments: 1
+Completed 202 Accepted in 19ms (ActiveRecord: 0.8ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Processing by Pubsubhubbub::SubscriptionsController#index as HTML
+  Parameters: {"hub.callback"=>"http://example.com/callback", "hub.mode"=>"unsubscribe", "hub.topic"=>"http://example.com/feed"}
+  [1m[36mPubsubhubbub::Subscription Load (0.0ms)[0m  [1m[34mSELECT  "pubsubhubbub_subscriptions".* FROM "pubsubhubbub_subscriptions" WHERE "pubsubhubbub_subscriptions"."topic" = ? AND "pubsubhubbub_subscriptions"."callback" = ? ORDER BY "pubsubhubbub_subscriptions"."id" ASC LIMIT ?[0m  [["topic", "http://example.com/feed"], ["callback", "http://example.com/callback"], ["LIMIT", 1]]
+No template found for Pubsubhubbub::SubscriptionsController#index, rendering head :no_content
+Completed 204 No Content in 7ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Processing by Pubsubhubbub::SubscriptionsController#index as HTML
+  Parameters: {"hub.mode"=>"publish", "hub.url"=>"http://example.com/feed"}
+[ActiveJob] [Pubsubhubbub::FetchTopicJob] [bd2a29bd-2de9-462a-b066-30986ed0492d] Performing Pubsubhubbub::FetchTopicJob from Inline(push) with arguments: "http://test.host/pubsubhubbub/", "http://example.com/feed"
+[ActiveJob] [Pubsubhubbub::FetchTopicJob] [bd2a29bd-2de9-462a-b066-30986ed0492d]   [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "pubsubhubbub_subscriptions" WHERE "pubsubhubbub_subscriptions"."topic" = ? AND "pubsubhubbub_subscriptions"."confirmed" = ? AND (expires_at > '2016-11-27 11:25:50.315422')[0m  [["topic", "http://example.com/feed"], ["confirmed", true]]
+[ActiveJob] [Pubsubhubbub::FetchTopicJob] [bd2a29bd-2de9-462a-b066-30986ed0492d] Performed Pubsubhubbub::FetchTopicJob from Inline(push) in 5.33ms
+[ActiveJob] Enqueued Pubsubhubbub::FetchTopicJob (Job ID: bd2a29bd-2de9-462a-b066-30986ed0492d) to Inline(push) with arguments: "http://test.host/pubsubhubbub/", "http://example.com/feed"
+Completed 202 Accepted in 12ms (ActiveRecord: 0.3ms)
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Processing by Pubsubhubbub::SubscriptionsController#index as HTML
+  Parameters: {"hub.callback"=>"http://example.com/callback", "hub.mode"=>"unsubscribe", "hub.topic"=>"http://example.com/feed"}
+  [1m[36mPubsubhubbub::Subscription Load (0.1ms)[0m  [1m[34mSELECT  "pubsubhubbub_subscriptions".* FROM "pubsubhubbub_subscriptions" WHERE "pubsubhubbub_subscriptions"."topic" = ? AND "pubsubhubbub_subscriptions"."callback" = ? ORDER BY "pubsubhubbub_subscriptions"."id" ASC LIMIT ?[0m  [["topic", "http://example.com/feed"], ["callback", "http://example.com/callback"], ["LIMIT", 1]]
+No template found for Pubsubhubbub::SubscriptionsController#index, rendering head :no_content
+Completed 204 No Content in 9ms (ActiveRecord: 0.3ms)
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Processing by Pubsubhubbub::SubscriptionsController#index as HTML
+  Parameters: {"hub.callback"=>"http://example.com/callback", "hub.mode"=>"subscribe", "hub.topic"=>"http://example.com/feed"}
+  [1m[36mPubsubhubbub::Subscription Load (0.0ms)[0m  [1m[34mSELECT  "pubsubhubbub_subscriptions".* FROM "pubsubhubbub_subscriptions" WHERE "pubsubhubbub_subscriptions"."topic" = ? AND "pubsubhubbub_subscriptions"."callback" = ? ORDER BY "pubsubhubbub_subscriptions"."id" ASC LIMIT ?[0m  [["topic", "http://example.com/feed"], ["callback", "http://example.com/callback"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "pubsubhubbub_subscriptions" ("topic", "callback", "mode", "challenge", "expires_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["topic", "http://example.com/feed"], ["callback", "http://example.com/callback"], ["mode", "subscribe"], ["challenge", "9749c696029198916128b965b9edeb1d"], ["expires_at", 2016-11-28 11:25:50 UTC], ["created_at", 2016-11-27 11:25:50 UTC], ["updated_at", 2016-11-27 11:25:50 UTC]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[ActiveJob] [Pubsubhubbub::VerifyIntentJob] [ddbe9a8b-b805-4103-be61-0f56e3978b77] Performing Pubsubhubbub::VerifyIntentJob from Inline(push) with arguments: 1
+[ActiveJob] [Pubsubhubbub::VerifyIntentJob] [ddbe9a8b-b805-4103-be61-0f56e3978b77]   [1m[36mPubsubhubbub::Subscription Load (0.1ms)[0m  [1m[34mSELECT  "pubsubhubbub_subscriptions".* FROM "pubsubhubbub_subscriptions" WHERE "pubsubhubbub_subscriptions"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[ActiveJob] [Pubsubhubbub::VerifyIntentJob] [ddbe9a8b-b805-4103-be61-0f56e3978b77]   [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[ActiveJob] [Pubsubhubbub::VerifyIntentJob] [ddbe9a8b-b805-4103-be61-0f56e3978b77]   [1m[35mSQL (0.1ms)[0m  [1m[33mUPDATE "pubsubhubbub_subscriptions" SET "challenge" = ?, "confirmed" = ?, "updated_at" = ? WHERE "pubsubhubbub_subscriptions"."id" = ?[0m  [["challenge", "c395f8b168c7fb71fc70ce612b2cf9fd"], ["confirmed", true], ["updated_at", 2016-11-27 11:25:50 UTC], ["id", 1]]
+[ActiveJob] [Pubsubhubbub::VerifyIntentJob] [ddbe9a8b-b805-4103-be61-0f56e3978b77]   [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[ActiveJob] [Pubsubhubbub::VerifyIntentJob] [ddbe9a8b-b805-4103-be61-0f56e3978b77] Performed Pubsubhubbub::VerifyIntentJob from Inline(push) in 5.11ms
+[ActiveJob] Enqueued Pubsubhubbub::VerifyIntentJob (Job ID: ddbe9a8b-b805-4103-be61-0f56e3978b77) to Inline(push) with arguments: 1
+Completed 202 Accepted in 12ms (ActiveRecord: 0.5ms)
+  [1m[36mPubsubhubbub::Subscription Load (0.1ms)[0m  [1m[34mSELECT  "pubsubhubbub_subscriptions".* FROM "pubsubhubbub_subscriptions" WHERE "pubsubhubbub_subscriptions"."topic" = ? ORDER BY "pubsubhubbub_subscriptions"."id" ASC LIMIT ?[0m  [["topic", "http://example.com/feed"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Processing by Pubsubhubbub::SubscriptionsController#index as HTML
+  Parameters: {"hub.callback"=>"http://example.com/callback", "hub.mode"=>"subscribe", "hub.topic"=>"http://example.com/feed"}
+  [1m[36mPubsubhubbub::Subscription Load (0.0ms)[0m  [1m[34mSELECT  "pubsubhubbub_subscriptions".* FROM "pubsubhubbub_subscriptions" WHERE "pubsubhubbub_subscriptions"."topic" = ? AND "pubsubhubbub_subscriptions"."callback" = ? ORDER BY "pubsubhubbub_subscriptions"."id" ASC LIMIT ?[0m  [["topic", "http://example.com/feed"], ["callback", "http://example.com/callback"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "pubsubhubbub_subscriptions" ("topic", "callback", "mode", "challenge", "expires_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["topic", "http://example.com/feed"], ["callback", "http://example.com/callback"], ["mode", "subscribe"], ["challenge", "3cb8bc22a2ed33a34d4816679dc6f35a"], ["expires_at", 2016-11-28 11:25:50 UTC], ["created_at", 2016-11-27 11:25:50 UTC], ["updated_at", 2016-11-27 11:25:50 UTC]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[ActiveJob] [Pubsubhubbub::VerifyIntentJob] [a13e8c81-aeb5-44a0-9e70-c3dad5df313c] Performing Pubsubhubbub::VerifyIntentJob from Inline(push) with arguments: 1
+[ActiveJob] [Pubsubhubbub::VerifyIntentJob] [a13e8c81-aeb5-44a0-9e70-c3dad5df313c]   [1m[36mPubsubhubbub::Subscription Load (0.0ms)[0m  [1m[34mSELECT  "pubsubhubbub_subscriptions".* FROM "pubsubhubbub_subscriptions" WHERE "pubsubhubbub_subscriptions"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[ActiveJob] [Pubsubhubbub::VerifyIntentJob] [a13e8c81-aeb5-44a0-9e70-c3dad5df313c]   [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[ActiveJob] [Pubsubhubbub::VerifyIntentJob] [a13e8c81-aeb5-44a0-9e70-c3dad5df313c]   [1m[35mSQL (0.1ms)[0m  [1m[33mUPDATE "pubsubhubbub_subscriptions" SET "challenge" = ?, "confirmed" = ?, "updated_at" = ? WHERE "pubsubhubbub_subscriptions"."id" = ?[0m  [["challenge", "cf7a4fa0273a396630bdebc002ee3a4b"], ["confirmed", true], ["updated_at", 2016-11-27 11:25:50 UTC], ["id", 1]]
+[ActiveJob] [Pubsubhubbub::VerifyIntentJob] [a13e8c81-aeb5-44a0-9e70-c3dad5df313c]   [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[ActiveJob] [Pubsubhubbub::VerifyIntentJob] [a13e8c81-aeb5-44a0-9e70-c3dad5df313c] Performed Pubsubhubbub::VerifyIntentJob from Inline(push) in 2.96ms
+[ActiveJob] Enqueued Pubsubhubbub::VerifyIntentJob (Job ID: a13e8c81-aeb5-44a0-9e70-c3dad5df313c) to Inline(push) with arguments: 1
+Completed 202 Accepted in 6ms (ActiveRecord: 0.4ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "pubsubhubbub_subscriptions" ("topic", "callback", "mode", "challenge", "confirmed", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["topic", "http://example.com/feed"], ["callback", "http://example.com/callback"], ["mode", "subscribe"], ["challenge", "1e8f4c8300e30809b4890ec2cc3dc124"], ["confirmed", true], ["created_at", 2016-11-27 11:27:03 UTC], ["updated_at", 2016-11-27 11:27:03 UTC]]
+  [1m[35m (0.0ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Processing by Pubsubhubbub::SubscriptionsController#index as HTML
+  Parameters: {"hub.callback"=>"http://example.com/callback", "hub.mode"=>"unsubscribe", "hub.topic"=>"http://example.com/feed"}
+  [1m[36mPubsubhubbub::Subscription Load (0.1ms)[0m  [1m[34mSELECT  "pubsubhubbub_subscriptions".* FROM "pubsubhubbub_subscriptions" WHERE "pubsubhubbub_subscriptions"."topic" = ? AND "pubsubhubbub_subscriptions"."callback" = ? ORDER BY "pubsubhubbub_subscriptions"."id" ASC LIMIT ?[0m  [["topic", "http://example.com/feed"], ["callback", "http://example.com/callback"], ["LIMIT", 1]]
+No template found for Pubsubhubbub::SubscriptionsController#index, rendering head :no_content
+Completed 204 No Content in 8ms (ActiveRecord: 0.1ms)
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Processing by Pubsubhubbub::SubscriptionsController#index as HTML
+  Parameters: {"hub.callback"=>"http://example.com/callback", "hub.mode"=>"subscribe", "hub.topic"=>"http://example.com/feed"}
+  [1m[36mPubsubhubbub::Subscription Load (0.0ms)[0m  [1m[34mSELECT  "pubsubhubbub_subscriptions".* FROM "pubsubhubbub_subscriptions" WHERE "pubsubhubbub_subscriptions"."topic" = ? AND "pubsubhubbub_subscriptions"."callback" = ? ORDER BY "pubsubhubbub_subscriptions"."id" ASC LIMIT ?[0m  [["topic", "http://example.com/feed"], ["callback", "http://example.com/callback"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "pubsubhubbub_subscriptions" ("topic", "callback", "mode", "challenge", "expires_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["topic", "http://example.com/feed"], ["callback", "http://example.com/callback"], ["mode", "subscribe"], ["challenge", "e52ab152f3cfb65cb9fbeb6704062eb6"], ["expires_at", 2016-11-28 11:27:03 UTC], ["created_at", 2016-11-27 11:27:03 UTC], ["updated_at", 2016-11-27 11:27:03 UTC]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[ActiveJob] [Pubsubhubbub::VerifyIntentJob] [20ce8478-230a-4667-bef1-94afc6076336] Performing Pubsubhubbub::VerifyIntentJob from Inline(push) with arguments: 1
+[ActiveJob] [Pubsubhubbub::VerifyIntentJob] [20ce8478-230a-4667-bef1-94afc6076336]   [1m[36mPubsubhubbub::Subscription Load (0.1ms)[0m  [1m[34mSELECT  "pubsubhubbub_subscriptions".* FROM "pubsubhubbub_subscriptions" WHERE "pubsubhubbub_subscriptions"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[ActiveJob] [Pubsubhubbub::VerifyIntentJob] [20ce8478-230a-4667-bef1-94afc6076336]   [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[ActiveJob] [Pubsubhubbub::VerifyIntentJob] [20ce8478-230a-4667-bef1-94afc6076336]   [1m[35mSQL (0.1ms)[0m  [1m[33mUPDATE "pubsubhubbub_subscriptions" SET "challenge" = ?, "confirmed" = ?, "updated_at" = ? WHERE "pubsubhubbub_subscriptions"."id" = ?[0m  [["challenge", "58128bce95c353f62dac73c7d4f6d68d"], ["confirmed", true], ["updated_at", 2016-11-27 11:27:03 UTC], ["id", 1]]
+[ActiveJob] [Pubsubhubbub::VerifyIntentJob] [20ce8478-230a-4667-bef1-94afc6076336]   [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[ActiveJob] [Pubsubhubbub::VerifyIntentJob] [20ce8478-230a-4667-bef1-94afc6076336] Performed Pubsubhubbub::VerifyIntentJob from Inline(push) in 6.15ms
+[ActiveJob] Enqueued Pubsubhubbub::VerifyIntentJob (Job ID: 20ce8478-230a-4667-bef1-94afc6076336) to Inline(push) with arguments: 1
+Completed 202 Accepted in 10ms (ActiveRecord: 0.5ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Processing by Pubsubhubbub::SubscriptionsController#index as HTML
+  Parameters: {"hub.callback"=>"http://example.com/callback", "hub.mode"=>"subscribe", "hub.topic"=>"http://example.com/feed"}
+  [1m[36mPubsubhubbub::Subscription Load (0.0ms)[0m  [1m[34mSELECT  "pubsubhubbub_subscriptions".* FROM "pubsubhubbub_subscriptions" WHERE "pubsubhubbub_subscriptions"."topic" = ? AND "pubsubhubbub_subscriptions"."callback" = ? ORDER BY "pubsubhubbub_subscriptions"."id" ASC LIMIT ?[0m  [["topic", "http://example.com/feed"], ["callback", "http://example.com/callback"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "pubsubhubbub_subscriptions" ("topic", "callback", "mode", "challenge", "expires_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["topic", "http://example.com/feed"], ["callback", "http://example.com/callback"], ["mode", "subscribe"], ["challenge", "a2301ebfd9e765432c7666f0d378455a"], ["expires_at", 2016-11-28 11:27:03 UTC], ["created_at", 2016-11-27 11:27:03 UTC], ["updated_at", 2016-11-27 11:27:03 UTC]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[ActiveJob] [Pubsubhubbub::VerifyIntentJob] [004fda37-b03a-438a-a330-69be9061b27e] Performing Pubsubhubbub::VerifyIntentJob from Inline(push) with arguments: 1
+[ActiveJob] [Pubsubhubbub::VerifyIntentJob] [004fda37-b03a-438a-a330-69be9061b27e]   [1m[36mPubsubhubbub::Subscription Load (0.0ms)[0m  [1m[34mSELECT  "pubsubhubbub_subscriptions".* FROM "pubsubhubbub_subscriptions" WHERE "pubsubhubbub_subscriptions"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[ActiveJob] [Pubsubhubbub::VerifyIntentJob] [004fda37-b03a-438a-a330-69be9061b27e]   [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[ActiveJob] [Pubsubhubbub::VerifyIntentJob] [004fda37-b03a-438a-a330-69be9061b27e]   [1m[35mSQL (0.1ms)[0m  [1m[33mUPDATE "pubsubhubbub_subscriptions" SET "challenge" = ?, "confirmed" = ?, "updated_at" = ? WHERE "pubsubhubbub_subscriptions"."id" = ?[0m  [["challenge", "e6182be68d3db1a3a44808592776e673"], ["confirmed", true], ["updated_at", 2016-11-27 11:27:03 UTC], ["id", 1]]
+[ActiveJob] [Pubsubhubbub::VerifyIntentJob] [004fda37-b03a-438a-a330-69be9061b27e]   [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[ActiveJob] [Pubsubhubbub::VerifyIntentJob] [004fda37-b03a-438a-a330-69be9061b27e] Performed Pubsubhubbub::VerifyIntentJob from Inline(push) in 3.16ms
+[ActiveJob] Enqueued Pubsubhubbub::VerifyIntentJob (Job ID: 004fda37-b03a-438a-a330-69be9061b27e) to Inline(push) with arguments: 1
+Completed 202 Accepted in 7ms (ActiveRecord: 0.4ms)
+  [1m[36mPubsubhubbub::Subscription Load (0.1ms)[0m  [1m[34mSELECT  "pubsubhubbub_subscriptions".* FROM "pubsubhubbub_subscriptions" WHERE "pubsubhubbub_subscriptions"."topic" = ? ORDER BY "pubsubhubbub_subscriptions"."id" ASC LIMIT ?[0m  [["topic", "http://example.com/feed"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "pubsubhubbub_subscriptions" ("topic", "callback", "mode", "challenge", "confirmed", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["topic", "http://example.com/feed"], ["callback", "http://example.com/callback"], ["mode", "subscribe"], ["challenge", "86798a1610baddaaed3f28e828a61b72"], ["confirmed", true], ["created_at", 2016-11-27 11:27:51 UTC], ["updated_at", 2016-11-27 11:27:51 UTC]]
+  [1m[35m (0.0ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Processing by Pubsubhubbub::SubscriptionsController#index as HTML
+  Parameters: {"hub.callback"=>"http://example.com/callback", "hub.mode"=>"unsubscribe", "hub.topic"=>"http://example.com/feed"}
+  [1m[36mPubsubhubbub::Subscription Load (0.1ms)[0m  [1m[34mSELECT  "pubsubhubbub_subscriptions".* FROM "pubsubhubbub_subscriptions" WHERE "pubsubhubbub_subscriptions"."topic" = ? AND "pubsubhubbub_subscriptions"."callback" = ? ORDER BY "pubsubhubbub_subscriptions"."id" ASC LIMIT ?[0m  [["topic", "http://example.com/feed"], ["callback", "http://example.com/callback"], ["LIMIT", 1]]
+No template found for Pubsubhubbub::SubscriptionsController#index, rendering head :no_content
+Completed 204 No Content in 8ms (ActiveRecord: 0.1ms)
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Processing by Pubsubhubbub::SubscriptionsController#index as HTML
+  Parameters: {"hub.callback"=>"http://example.com/callback", "hub.mode"=>"subscribe", "hub.topic"=>"http://example.com/feed"}
+  [1m[36mPubsubhubbub::Subscription Load (0.0ms)[0m  [1m[34mSELECT  "pubsubhubbub_subscriptions".* FROM "pubsubhubbub_subscriptions" WHERE "pubsubhubbub_subscriptions"."topic" = ? AND "pubsubhubbub_subscriptions"."callback" = ? ORDER BY "pubsubhubbub_subscriptions"."id" ASC LIMIT ?[0m  [["topic", "http://example.com/feed"], ["callback", "http://example.com/callback"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "pubsubhubbub_subscriptions" ("topic", "callback", "mode", "challenge", "expires_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["topic", "http://example.com/feed"], ["callback", "http://example.com/callback"], ["mode", "subscribe"], ["challenge", "7f961a898f8877aa7cf3f1ff52614415"], ["expires_at", 2016-11-28 11:27:51 UTC], ["created_at", 2016-11-27 11:27:51 UTC], ["updated_at", 2016-11-27 11:27:51 UTC]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[ActiveJob] [Pubsubhubbub::VerifyIntentJob] [ab24d2e1-0d36-4c2f-b917-d446abd7fb02] Performing Pubsubhubbub::VerifyIntentJob from Inline(push) with arguments: 1
+[ActiveJob] [Pubsubhubbub::VerifyIntentJob] [ab24d2e1-0d36-4c2f-b917-d446abd7fb02]   [1m[36mPubsubhubbub::Subscription Load (0.1ms)[0m  [1m[34mSELECT  "pubsubhubbub_subscriptions".* FROM "pubsubhubbub_subscriptions" WHERE "pubsubhubbub_subscriptions"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[ActiveJob] [Pubsubhubbub::VerifyIntentJob] [ab24d2e1-0d36-4c2f-b917-d446abd7fb02]   [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[ActiveJob] [Pubsubhubbub::VerifyIntentJob] [ab24d2e1-0d36-4c2f-b917-d446abd7fb02]   [1m[35mSQL (0.1ms)[0m  [1m[33mUPDATE "pubsubhubbub_subscriptions" SET "challenge" = ?, "confirmed" = ?, "updated_at" = ? WHERE "pubsubhubbub_subscriptions"."id" = ?[0m  [["challenge", "80f464a1b9fd6a7e5fd515434fe24392"], ["confirmed", true], ["updated_at", 2016-11-27 11:27:51 UTC], ["id", 1]]
+[ActiveJob] [Pubsubhubbub::VerifyIntentJob] [ab24d2e1-0d36-4c2f-b917-d446abd7fb02]   [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[ActiveJob] [Pubsubhubbub::VerifyIntentJob] [ab24d2e1-0d36-4c2f-b917-d446abd7fb02] Performed Pubsubhubbub::VerifyIntentJob from Inline(push) in 6.1ms
+[ActiveJob] Enqueued Pubsubhubbub::VerifyIntentJob (Job ID: ab24d2e1-0d36-4c2f-b917-d446abd7fb02) to Inline(push) with arguments: 1
+Completed 202 Accepted in 10ms (ActiveRecord: 0.5ms)
+  [1m[36mPubsubhubbub::Subscription Load (0.1ms)[0m  [1m[34mSELECT  "pubsubhubbub_subscriptions".* FROM "pubsubhubbub_subscriptions" WHERE "pubsubhubbub_subscriptions"."topic" = ? ORDER BY "pubsubhubbub_subscriptions"."id" ASC LIMIT ?[0m  [["topic", "http://example.com/feed"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Processing by Pubsubhubbub::SubscriptionsController#index as HTML
+  Parameters: {"hub.callback"=>"http://example.com/callback", "hub.mode"=>"subscribe", "hub.topic"=>"http://example.com/feed"}
+  [1m[36mPubsubhubbub::Subscription Load (0.0ms)[0m  [1m[34mSELECT  "pubsubhubbub_subscriptions".* FROM "pubsubhubbub_subscriptions" WHERE "pubsubhubbub_subscriptions"."topic" = ? AND "pubsubhubbub_subscriptions"."callback" = ? ORDER BY "pubsubhubbub_subscriptions"."id" ASC LIMIT ?[0m  [["topic", "http://example.com/feed"], ["callback", "http://example.com/callback"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "pubsubhubbub_subscriptions" ("topic", "callback", "mode", "challenge", "expires_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["topic", "http://example.com/feed"], ["callback", "http://example.com/callback"], ["mode", "subscribe"], ["challenge", "7d2b55ab17fd86feb208154f167c71b9"], ["expires_at", 2016-11-28 11:27:51 UTC], ["created_at", 2016-11-27 11:27:51 UTC], ["updated_at", 2016-11-27 11:27:51 UTC]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[ActiveJob] [Pubsubhubbub::VerifyIntentJob] [e4d85d6d-f65e-45d1-a306-b59bda18f971] Performing Pubsubhubbub::VerifyIntentJob from Inline(push) with arguments: 1
+[ActiveJob] [Pubsubhubbub::VerifyIntentJob] [e4d85d6d-f65e-45d1-a306-b59bda18f971]   [1m[36mPubsubhubbub::Subscription Load (0.0ms)[0m  [1m[34mSELECT  "pubsubhubbub_subscriptions".* FROM "pubsubhubbub_subscriptions" WHERE "pubsubhubbub_subscriptions"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[ActiveJob] [Pubsubhubbub::VerifyIntentJob] [e4d85d6d-f65e-45d1-a306-b59bda18f971]   [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[ActiveJob] [Pubsubhubbub::VerifyIntentJob] [e4d85d6d-f65e-45d1-a306-b59bda18f971]   [1m[35mSQL (0.1ms)[0m  [1m[33mUPDATE "pubsubhubbub_subscriptions" SET "challenge" = ?, "confirmed" = ?, "updated_at" = ? WHERE "pubsubhubbub_subscriptions"."id" = ?[0m  [["challenge", "ba1ea5559cc105abece99880c7ba246e"], ["confirmed", true], ["updated_at", 2016-11-27 11:27:51 UTC], ["id", 1]]
+[ActiveJob] [Pubsubhubbub::VerifyIntentJob] [e4d85d6d-f65e-45d1-a306-b59bda18f971]   [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[ActiveJob] [Pubsubhubbub::VerifyIntentJob] [e4d85d6d-f65e-45d1-a306-b59bda18f971] Performed Pubsubhubbub::VerifyIntentJob from Inline(push) in 3.27ms
+[ActiveJob] Enqueued Pubsubhubbub::VerifyIntentJob (Job ID: e4d85d6d-f65e-45d1-a306-b59bda18f971) to Inline(push) with arguments: 1
+Completed 202 Accepted in 6ms (ActiveRecord: 0.4ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Processing by Pubsubhubbub::SubscriptionsController#index as HTML
+  Parameters: {"hub.callback"=>"http://example.com/callback", "hub.mode"=>"subscribe", "hub.topic"=>"http://example.com/feed"}
+  [1m[36mPubsubhubbub::Subscription Load (0.1ms)[0m  [1m[34mSELECT  "pubsubhubbub_subscriptions".* FROM "pubsubhubbub_subscriptions" WHERE "pubsubhubbub_subscriptions"."topic" = ? AND "pubsubhubbub_subscriptions"."callback" = ? ORDER BY "pubsubhubbub_subscriptions"."id" ASC LIMIT ?[0m  [["topic", "http://example.com/feed"], ["callback", "http://example.com/callback"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "pubsubhubbub_subscriptions" ("topic", "callback", "mode", "challenge", "expires_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["topic", "http://example.com/feed"], ["callback", "http://example.com/callback"], ["mode", "subscribe"], ["challenge", "a44193e9410f8e741007cfa41dcf1221"], ["expires_at", 2016-11-28 11:29:01 UTC], ["created_at", 2016-11-27 11:29:01 UTC], ["updated_at", 2016-11-27 11:29:01 UTC]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[ActiveJob] [Pubsubhubbub::VerifyIntentJob] [a6071b18-6cb0-41ee-866c-ac8dd065481f] Performing Pubsubhubbub::VerifyIntentJob from Inline(push) with arguments: 1
+[ActiveJob] [Pubsubhubbub::VerifyIntentJob] [a6071b18-6cb0-41ee-866c-ac8dd065481f]   [1m[36mPubsubhubbub::Subscription Load (0.1ms)[0m  [1m[34mSELECT  "pubsubhubbub_subscriptions".* FROM "pubsubhubbub_subscriptions" WHERE "pubsubhubbub_subscriptions"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[ActiveJob] [Pubsubhubbub::VerifyIntentJob] [a6071b18-6cb0-41ee-866c-ac8dd065481f]   [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[ActiveJob] [Pubsubhubbub::VerifyIntentJob] [a6071b18-6cb0-41ee-866c-ac8dd065481f]   [1m[35mSQL (0.1ms)[0m  [1m[33mUPDATE "pubsubhubbub_subscriptions" SET "challenge" = ?, "confirmed" = ?, "updated_at" = ? WHERE "pubsubhubbub_subscriptions"."id" = ?[0m  [["challenge", "768b4f4732037d1d8a01ec367d1a1ff5"], ["confirmed", true], ["updated_at", 2016-11-27 11:29:01 UTC], ["id", 1]]
+[ActiveJob] [Pubsubhubbub::VerifyIntentJob] [a6071b18-6cb0-41ee-866c-ac8dd065481f]   [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[ActiveJob] [Pubsubhubbub::VerifyIntentJob] [a6071b18-6cb0-41ee-866c-ac8dd065481f] Performed Pubsubhubbub::VerifyIntentJob from Inline(push) in 6.17ms
+[ActiveJob] Enqueued Pubsubhubbub::VerifyIntentJob (Job ID: a6071b18-6cb0-41ee-866c-ac8dd065481f) to Inline(push) with arguments: 1
+Completed 202 Accepted in 12ms (ActiveRecord: 0.5ms)
+  [1m[36mPubsubhubbub::Subscription Load (0.1ms)[0m  [1m[34mSELECT  "pubsubhubbub_subscriptions".* FROM "pubsubhubbub_subscriptions" WHERE "pubsubhubbub_subscriptions"."topic" = ? ORDER BY "pubsubhubbub_subscriptions"."id" ASC LIMIT ?[0m  [["topic", "http://example.com/feed"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Processing by Pubsubhubbub::SubscriptionsController#index as HTML
+  Parameters: {"hub.callback"=>"http://example.com/callback", "hub.mode"=>"subscribe", "hub.topic"=>"http://example.com/feed"}
+  [1m[36mPubsubhubbub::Subscription Load (0.0ms)[0m  [1m[34mSELECT  "pubsubhubbub_subscriptions".* FROM "pubsubhubbub_subscriptions" WHERE "pubsubhubbub_subscriptions"."topic" = ? AND "pubsubhubbub_subscriptions"."callback" = ? ORDER BY "pubsubhubbub_subscriptions"."id" ASC LIMIT ?[0m  [["topic", "http://example.com/feed"], ["callback", "http://example.com/callback"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "pubsubhubbub_subscriptions" ("topic", "callback", "mode", "challenge", "expires_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["topic", "http://example.com/feed"], ["callback", "http://example.com/callback"], ["mode", "subscribe"], ["challenge", "df50d71fc2b0b49f428127322b3d48e4"], ["expires_at", 2016-11-28 11:29:01 UTC], ["created_at", 2016-11-27 11:29:01 UTC], ["updated_at", 2016-11-27 11:29:01 UTC]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[ActiveJob] [Pubsubhubbub::VerifyIntentJob] [a4d8a0ca-a185-442b-bccc-64356b64fab9] Performing Pubsubhubbub::VerifyIntentJob from Inline(push) with arguments: 1
+[ActiveJob] [Pubsubhubbub::VerifyIntentJob] [a4d8a0ca-a185-442b-bccc-64356b64fab9]   [1m[36mPubsubhubbub::Subscription Load (0.0ms)[0m  [1m[34mSELECT  "pubsubhubbub_subscriptions".* FROM "pubsubhubbub_subscriptions" WHERE "pubsubhubbub_subscriptions"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[ActiveJob] [Pubsubhubbub::VerifyIntentJob] [a4d8a0ca-a185-442b-bccc-64356b64fab9]   [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[ActiveJob] [Pubsubhubbub::VerifyIntentJob] [a4d8a0ca-a185-442b-bccc-64356b64fab9]   [1m[35mSQL (0.1ms)[0m  [1m[33mUPDATE "pubsubhubbub_subscriptions" SET "challenge" = ?, "confirmed" = ?, "updated_at" = ? WHERE "pubsubhubbub_subscriptions"."id" = ?[0m  [["challenge", "094980f9913f0beeb7fa1e4fb9843851"], ["confirmed", true], ["updated_at", 2016-11-27 11:29:01 UTC], ["id", 1]]
+[ActiveJob] [Pubsubhubbub::VerifyIntentJob] [a4d8a0ca-a185-442b-bccc-64356b64fab9]   [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[ActiveJob] [Pubsubhubbub::VerifyIntentJob] [a4d8a0ca-a185-442b-bccc-64356b64fab9] Performed Pubsubhubbub::VerifyIntentJob from Inline(push) in 3.0ms
+[ActiveJob] Enqueued Pubsubhubbub::VerifyIntentJob (Job ID: a4d8a0ca-a185-442b-bccc-64356b64fab9) to Inline(push) with arguments: 1
+Completed 202 Accepted in 6ms (ActiveRecord: 0.3ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Processing by Pubsubhubbub::SubscriptionsController#index as HTML
+  Parameters: {"hub.callback"=>"http://example.com/callback", "hub.mode"=>"unsubscribe", "hub.topic"=>"http://example.com/feed"}
+  [1m[36mPubsubhubbub::Subscription Load (0.1ms)[0m  [1m[34mSELECT  "pubsubhubbub_subscriptions".* FROM "pubsubhubbub_subscriptions" WHERE "pubsubhubbub_subscriptions"."topic" = ? AND "pubsubhubbub_subscriptions"."callback" = ? ORDER BY "pubsubhubbub_subscriptions"."id" ASC LIMIT ?[0m  [["topic", "http://example.com/feed"], ["callback", "http://example.com/callback"], ["LIMIT", 1]]
+No template found for Pubsubhubbub::SubscriptionsController#index, rendering head :no_content
+Completed 204 No Content in 7ms (ActiveRecord: 0.1ms)
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Processing by Pubsubhubbub::SubscriptionsController#index as HTML
+  Parameters: {"hub.callback"=>"http://example.com/callback", "hub.mode"=>"subscribe", "hub.topic"=>"http://example.com/feed"}
+  [1m[36mPubsubhubbub::Subscription Load (0.1ms)[0m  [1m[34mSELECT  "pubsubhubbub_subscriptions".* FROM "pubsubhubbub_subscriptions" WHERE "pubsubhubbub_subscriptions"."topic" = ? AND "pubsubhubbub_subscriptions"."callback" = ? ORDER BY "pubsubhubbub_subscriptions"."id" ASC LIMIT ?[0m  [["topic", "http://example.com/feed"], ["callback", "http://example.com/callback"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "pubsubhubbub_subscriptions" ("topic", "callback", "mode", "challenge", "expires_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["topic", "http://example.com/feed"], ["callback", "http://example.com/callback"], ["mode", "subscribe"], ["challenge", "24f5c1a9f9eb8af47900635bb661d117"], ["expires_at", 2016-11-28 11:30:04 UTC], ["created_at", 2016-11-27 11:30:04 UTC], ["updated_at", 2016-11-27 11:30:04 UTC]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[ActiveJob] [Pubsubhubbub::VerifyIntentJob] [f36b5167-c18d-46ac-9f2c-a4c5fe754ceb] Performing Pubsubhubbub::VerifyIntentJob from Inline(push) with arguments: 1
+[ActiveJob] [Pubsubhubbub::VerifyIntentJob] [f36b5167-c18d-46ac-9f2c-a4c5fe754ceb]   [1m[36mPubsubhubbub::Subscription Load (0.1ms)[0m  [1m[34mSELECT  "pubsubhubbub_subscriptions".* FROM "pubsubhubbub_subscriptions" WHERE "pubsubhubbub_subscriptions"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[ActiveJob] [Pubsubhubbub::VerifyIntentJob] [f36b5167-c18d-46ac-9f2c-a4c5fe754ceb]   [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[ActiveJob] [Pubsubhubbub::VerifyIntentJob] [f36b5167-c18d-46ac-9f2c-a4c5fe754ceb]   [1m[35mSQL (0.2ms)[0m  [1m[33mUPDATE "pubsubhubbub_subscriptions" SET "challenge" = ?, "confirmed" = ?, "updated_at" = ? WHERE "pubsubhubbub_subscriptions"."id" = ?[0m  [["challenge", "c48ffd6262a429c7a1883c29a23fbe5a"], ["confirmed", true], ["updated_at", 2016-11-27 11:30:04 UTC], ["id", 1]]
+[ActiveJob] [Pubsubhubbub::VerifyIntentJob] [f36b5167-c18d-46ac-9f2c-a4c5fe754ceb]   [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[ActiveJob] [Pubsubhubbub::VerifyIntentJob] [f36b5167-c18d-46ac-9f2c-a4c5fe754ceb] Performed Pubsubhubbub::VerifyIntentJob from Inline(push) in 6.58ms
+[ActiveJob] Enqueued Pubsubhubbub::VerifyIntentJob (Job ID: f36b5167-c18d-46ac-9f2c-a4c5fe754ceb) to Inline(push) with arguments: 1
+Completed 202 Accepted in 23ms (ActiveRecord: 1.0ms)
+  [1m[36mPubsubhubbub::Subscription Load (0.1ms)[0m  [1m[34mSELECT  "pubsubhubbub_subscriptions".* FROM "pubsubhubbub_subscriptions" WHERE "pubsubhubbub_subscriptions"."topic" = ? ORDER BY "pubsubhubbub_subscriptions"."id" ASC LIMIT ?[0m  [["topic", "http://example.com/feed"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Processing by Pubsubhubbub::SubscriptionsController#index as HTML
+  Parameters: {"hub.callback"=>"http://example.com/callback", "hub.mode"=>"subscribe", "hub.topic"=>"http://example.com/feed"}
+  [1m[36mPubsubhubbub::Subscription Load (0.0ms)[0m  [1m[34mSELECT  "pubsubhubbub_subscriptions".* FROM "pubsubhubbub_subscriptions" WHERE "pubsubhubbub_subscriptions"."topic" = ? AND "pubsubhubbub_subscriptions"."callback" = ? ORDER BY "pubsubhubbub_subscriptions"."id" ASC LIMIT ?[0m  [["topic", "http://example.com/feed"], ["callback", "http://example.com/callback"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "pubsubhubbub_subscriptions" ("topic", "callback", "mode", "challenge", "expires_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["topic", "http://example.com/feed"], ["callback", "http://example.com/callback"], ["mode", "subscribe"], ["challenge", "b99a1c36175ecd52184a3289a38568c9"], ["expires_at", 2016-11-28 11:30:04 UTC], ["created_at", 2016-11-27 11:30:04 UTC], ["updated_at", 2016-11-27 11:30:04 UTC]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[ActiveJob] [Pubsubhubbub::VerifyIntentJob] [e329fdb2-6750-4263-bba7-e4feebad89b7] Performing Pubsubhubbub::VerifyIntentJob from Inline(push) with arguments: 1
+[ActiveJob] [Pubsubhubbub::VerifyIntentJob] [e329fdb2-6750-4263-bba7-e4feebad89b7]   [1m[36mPubsubhubbub::Subscription Load (0.0ms)[0m  [1m[34mSELECT  "pubsubhubbub_subscriptions".* FROM "pubsubhubbub_subscriptions" WHERE "pubsubhubbub_subscriptions"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[ActiveJob] [Pubsubhubbub::VerifyIntentJob] [e329fdb2-6750-4263-bba7-e4feebad89b7]   [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[ActiveJob] [Pubsubhubbub::VerifyIntentJob] [e329fdb2-6750-4263-bba7-e4feebad89b7]   [1m[35mSQL (0.1ms)[0m  [1m[33mUPDATE "pubsubhubbub_subscriptions" SET "challenge" = ?, "confirmed" = ?, "updated_at" = ? WHERE "pubsubhubbub_subscriptions"."id" = ?[0m  [["challenge", "7ea03b4ecfc58a7da84c8dd429617fef"], ["confirmed", true], ["updated_at", 2016-11-27 11:30:04 UTC], ["id", 1]]
+[ActiveJob] [Pubsubhubbub::VerifyIntentJob] [e329fdb2-6750-4263-bba7-e4feebad89b7]   [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[ActiveJob] [Pubsubhubbub::VerifyIntentJob] [e329fdb2-6750-4263-bba7-e4feebad89b7] Performed Pubsubhubbub::VerifyIntentJob from Inline(push) in 3.06ms
+[ActiveJob] Enqueued Pubsubhubbub::VerifyIntentJob (Job ID: e329fdb2-6750-4263-bba7-e4feebad89b7) to Inline(push) with arguments: 1
+Completed 202 Accepted in 7ms (ActiveRecord: 0.4ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "pubsubhubbub_subscriptions" ("topic", "callback", "mode", "challenge", "confirmed", "expires_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["topic", "http://example.com/feed"], ["callback", "http://example.com/callback"], ["mode", "subscribe"], ["challenge", "8243b14246c117501ae5b046629d8063"], ["confirmed", true], ["expires_at", 2016-11-28 11:30:04 UTC], ["created_at", 2016-11-27 11:30:04 UTC], ["updated_at", 2016-11-27 11:30:04 UTC]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by Pubsubhubbub::SubscriptionsController#index as HTML
+  Parameters: {"hub.mode"=>"publish", "hub.url"=>"http://example.com/feed"}
+[ActiveJob] [Pubsubhubbub::FetchTopicJob] [044f7678-e924-4135-acf1-a337332d689d] Performing Pubsubhubbub::FetchTopicJob from Inline(push) with arguments: "http://test.host/pubsubhubbub/", "http://example.com/feed"
+[ActiveJob] [Pubsubhubbub::FetchTopicJob] [044f7678-e924-4135-acf1-a337332d689d]   [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "pubsubhubbub_subscriptions" WHERE "pubsubhubbub_subscriptions"."topic" = ? AND "pubsubhubbub_subscriptions"."confirmed" = ? AND (expires_at > '2016-11-27 11:30:04.153951')[0m  [["topic", "http://example.com/feed"], ["confirmed", true]]
+[ActiveJob] [Pubsubhubbub::FetchTopicJob] [044f7678-e924-4135-acf1-a337332d689d]   [1m[36mPubsubhubbub::Subscription Load (0.1ms)[0m  [1m[34mSELECT  "pubsubhubbub_subscriptions".* FROM "pubsubhubbub_subscriptions" WHERE "pubsubhubbub_subscriptions"."topic" = ? AND "pubsubhubbub_subscriptions"."confirmed" = ? AND (expires_at > '2016-11-27 11:30:04.155618') ORDER BY "pubsubhubbub_subscriptions"."id" ASC LIMIT ?[0m  [["topic", "http://example.com/feed"], ["confirmed", true], ["LIMIT", 1000]]
+[ActiveJob] [Pubsubhubbub::FetchTopicJob] [044f7678-e924-4135-acf1-a337332d689d] [Pubsubhubbub::DeliverPayloadJob] [0f1bd9b3-9cd9-4d09-98ae-cd860fc199e6] Performing Pubsubhubbub::DeliverPayloadJob from Inline(push) with arguments: "http://test.host/pubsubhubbub/", 1, "foo"
+[ActiveJob] [Pubsubhubbub::FetchTopicJob] [044f7678-e924-4135-acf1-a337332d689d] [Pubsubhubbub::DeliverPayloadJob] [0f1bd9b3-9cd9-4d09-98ae-cd860fc199e6]   [1m[36mPubsubhubbub::Subscription Load (0.1ms)[0m  [1m[34mSELECT  "pubsubhubbub_subscriptions".* FROM "pubsubhubbub_subscriptions" WHERE "pubsubhubbub_subscriptions"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[ActiveJob] [Pubsubhubbub::FetchTopicJob] [044f7678-e924-4135-acf1-a337332d689d] [Pubsubhubbub::DeliverPayloadJob] [0f1bd9b3-9cd9-4d09-98ae-cd860fc199e6] Performed Pubsubhubbub::DeliverPayloadJob from Inline(push) in 1.37ms
+[ActiveJob] [Pubsubhubbub::FetchTopicJob] [044f7678-e924-4135-acf1-a337332d689d] Performed Pubsubhubbub::FetchTopicJob from Inline(push) in 4.41ms
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.2ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Processing by Pubsubhubbub::SubscriptionsController#index as HTML
+  Parameters: {"hub.callback"=>"http://example.com/callback", "hub.mode"=>"unsubscribe", "hub.topic"=>"http://example.com/feed"}
+  [1m[36mPubsubhubbub::Subscription Load (0.0ms)[0m  [1m[34mSELECT  "pubsubhubbub_subscriptions".* FROM "pubsubhubbub_subscriptions" WHERE "pubsubhubbub_subscriptions"."topic" = ? AND "pubsubhubbub_subscriptions"."callback" = ? ORDER BY "pubsubhubbub_subscriptions"."id" ASC LIMIT ?[0m  [["topic", "http://example.com/feed"], ["callback", "http://example.com/callback"], ["LIMIT", 1]]
+No template found for Pubsubhubbub::SubscriptionsController#index, rendering head :no_content
+Completed 204 No Content in 7ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Processing by Pubsubhubbub::SubscriptionsController#index as HTML
+  Parameters: {"hub.callback"=>"http://example.com/callback", "hub.mode"=>"unsubscribe", "hub.topic"=>"http://example.com/feed"}
+  [1m[36mPubsubhubbub::Subscription Load (0.1ms)[0m  [1m[34mSELECT  "pubsubhubbub_subscriptions".* FROM "pubsubhubbub_subscriptions" WHERE "pubsubhubbub_subscriptions"."topic" = ? AND "pubsubhubbub_subscriptions"."callback" = ? ORDER BY "pubsubhubbub_subscriptions"."id" ASC LIMIT ?[0m  [["topic", "http://example.com/feed"], ["callback", "http://example.com/callback"], ["LIMIT", 1]]
+No template found for Pubsubhubbub::SubscriptionsController#index, rendering head :no_content
+Completed 204 No Content in 11ms (ActiveRecord: 0.4ms)
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Processing by Pubsubhubbub::SubscriptionsController#index as HTML
+  Parameters: {"hub.callback"=>"http://example.com/callback", "hub.mode"=>"subscribe", "hub.topic"=>"http://example.com/feed"}
+  [1m[36mPubsubhubbub::Subscription Load (0.0ms)[0m  [1m[34mSELECT  "pubsubhubbub_subscriptions".* FROM "pubsubhubbub_subscriptions" WHERE "pubsubhubbub_subscriptions"."topic" = ? AND "pubsubhubbub_subscriptions"."callback" = ? ORDER BY "pubsubhubbub_subscriptions"."id" ASC LIMIT ?[0m  [["topic", "http://example.com/feed"], ["callback", "http://example.com/callback"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "pubsubhubbub_subscriptions" ("topic", "callback", "mode", "challenge", "expires_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["topic", "http://example.com/feed"], ["callback", "http://example.com/callback"], ["mode", "subscribe"], ["challenge", "bf884fc4f9ee5d2470ba0dc5bd1ebc85"], ["expires_at", 2016-11-28 11:31:42 UTC], ["created_at", 2016-11-27 11:31:42 UTC], ["updated_at", 2016-11-27 11:31:42 UTC]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[ActiveJob] [Pubsubhubbub::VerifyIntentJob] [d959cbb1-50f3-447d-a290-e3bcafe30abc] Performing Pubsubhubbub::VerifyIntentJob from Inline(push) with arguments: 1
+[ActiveJob] [Pubsubhubbub::VerifyIntentJob] [d959cbb1-50f3-447d-a290-e3bcafe30abc]   [1m[36mPubsubhubbub::Subscription Load (0.1ms)[0m  [1m[34mSELECT  "pubsubhubbub_subscriptions".* FROM "pubsubhubbub_subscriptions" WHERE "pubsubhubbub_subscriptions"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[ActiveJob] [Pubsubhubbub::VerifyIntentJob] [d959cbb1-50f3-447d-a290-e3bcafe30abc]   [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[ActiveJob] [Pubsubhubbub::VerifyIntentJob] [d959cbb1-50f3-447d-a290-e3bcafe30abc]   [1m[35mSQL (0.1ms)[0m  [1m[33mUPDATE "pubsubhubbub_subscriptions" SET "challenge" = ?, "confirmed" = ?, "updated_at" = ? WHERE "pubsubhubbub_subscriptions"."id" = ?[0m  [["challenge", "f4e35954a2e2d3053a04a41d767c5cd6"], ["confirmed", true], ["updated_at", 2016-11-27 11:31:42 UTC], ["id", 1]]
+[ActiveJob] [Pubsubhubbub::VerifyIntentJob] [d959cbb1-50f3-447d-a290-e3bcafe30abc]   [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[ActiveJob] [Pubsubhubbub::VerifyIntentJob] [d959cbb1-50f3-447d-a290-e3bcafe30abc] Performed Pubsubhubbub::VerifyIntentJob from Inline(push) in 6.89ms
+[ActiveJob] Enqueued Pubsubhubbub::VerifyIntentJob (Job ID: d959cbb1-50f3-447d-a290-e3bcafe30abc) to Inline(push) with arguments: 1
+Completed 202 Accepted in 20ms (ActiveRecord: 0.5ms)
+  [1m[36mPubsubhubbub::Subscription Load (0.1ms)[0m  [1m[34mSELECT  "pubsubhubbub_subscriptions".* FROM "pubsubhubbub_subscriptions" WHERE "pubsubhubbub_subscriptions"."topic" = ? ORDER BY "pubsubhubbub_subscriptions"."id" ASC LIMIT ?[0m  [["topic", "http://example.com/feed"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Processing by Pubsubhubbub::SubscriptionsController#index as HTML
+  Parameters: {"hub.callback"=>"http://example.com/callback", "hub.mode"=>"subscribe", "hub.topic"=>"http://example.com/feed"}
+  [1m[36mPubsubhubbub::Subscription Load (0.0ms)[0m  [1m[34mSELECT  "pubsubhubbub_subscriptions".* FROM "pubsubhubbub_subscriptions" WHERE "pubsubhubbub_subscriptions"."topic" = ? AND "pubsubhubbub_subscriptions"."callback" = ? ORDER BY "pubsubhubbub_subscriptions"."id" ASC LIMIT ?[0m  [["topic", "http://example.com/feed"], ["callback", "http://example.com/callback"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "pubsubhubbub_subscriptions" ("topic", "callback", "mode", "challenge", "expires_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["topic", "http://example.com/feed"], ["callback", "http://example.com/callback"], ["mode", "subscribe"], ["challenge", "e46b72f42b7538b1145e921e9c814fbf"], ["expires_at", 2016-11-28 11:31:42 UTC], ["created_at", 2016-11-27 11:31:42 UTC], ["updated_at", 2016-11-27 11:31:42 UTC]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[ActiveJob] [Pubsubhubbub::VerifyIntentJob] [8070bf2f-126c-4e94-884f-24ab1f7611af] Performing Pubsubhubbub::VerifyIntentJob from Inline(push) with arguments: 1
+[ActiveJob] [Pubsubhubbub::VerifyIntentJob] [8070bf2f-126c-4e94-884f-24ab1f7611af]   [1m[36mPubsubhubbub::Subscription Load (0.0ms)[0m  [1m[34mSELECT  "pubsubhubbub_subscriptions".* FROM "pubsubhubbub_subscriptions" WHERE "pubsubhubbub_subscriptions"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[ActiveJob] [Pubsubhubbub::VerifyIntentJob] [8070bf2f-126c-4e94-884f-24ab1f7611af]   [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[ActiveJob] [Pubsubhubbub::VerifyIntentJob] [8070bf2f-126c-4e94-884f-24ab1f7611af]   [1m[35mSQL (0.1ms)[0m  [1m[33mUPDATE "pubsubhubbub_subscriptions" SET "challenge" = ?, "confirmed" = ?, "updated_at" = ? WHERE "pubsubhubbub_subscriptions"."id" = ?[0m  [["challenge", "4d0e079592a8d4a9c7d903c42c2ffe68"], ["confirmed", true], ["updated_at", 2016-11-27 11:31:42 UTC], ["id", 1]]
+[ActiveJob] [Pubsubhubbub::VerifyIntentJob] [8070bf2f-126c-4e94-884f-24ab1f7611af]   [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[ActiveJob] [Pubsubhubbub::VerifyIntentJob] [8070bf2f-126c-4e94-884f-24ab1f7611af] Performed Pubsubhubbub::VerifyIntentJob from Inline(push) in 3.4ms
+[ActiveJob] Enqueued Pubsubhubbub::VerifyIntentJob (Job ID: 8070bf2f-126c-4e94-884f-24ab1f7611af) to Inline(push) with arguments: 1
+Completed 202 Accepted in 7ms (ActiveRecord: 0.4ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "pubsubhubbub_subscriptions" ("topic", "callback", "mode", "challenge", "confirmed", "expires_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["topic", "http://example.com/feed"], ["callback", "http://example.com/callback"], ["mode", "subscribe"], ["challenge", "080631571f7f52fa3eabd73c80cb82c8"], ["confirmed", true], ["expires_at", 2016-11-28 11:31:42 UTC], ["created_at", 2016-11-27 11:31:42 UTC], ["updated_at", 2016-11-27 11:31:42 UTC]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by Pubsubhubbub::SubscriptionsController#index as HTML
+  Parameters: {"hub.mode"=>"publish", "hub.url"=>"http://example.com/feed"}
+[ActiveJob] [Pubsubhubbub::FetchTopicJob] [20fa9b5f-bb51-4283-ab9c-33f80eba5f5d] Performing Pubsubhubbub::FetchTopicJob from Inline(push) with arguments: "http://test.host/pubsubhubbub/", "http://example.com/feed"
+[ActiveJob] [Pubsubhubbub::FetchTopicJob] [20fa9b5f-bb51-4283-ab9c-33f80eba5f5d]   [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "pubsubhubbub_subscriptions" WHERE "pubsubhubbub_subscriptions"."topic" = ? AND "pubsubhubbub_subscriptions"."confirmed" = ? AND (expires_at > '2016-11-27 11:31:42.844969')[0m  [["topic", "http://example.com/feed"], ["confirmed", true]]
+[ActiveJob] [Pubsubhubbub::FetchTopicJob] [20fa9b5f-bb51-4283-ab9c-33f80eba5f5d]   [1m[36mPubsubhubbub::Subscription Load (0.1ms)[0m  [1m[34mSELECT  "pubsubhubbub_subscriptions".* FROM "pubsubhubbub_subscriptions" WHERE "pubsubhubbub_subscriptions"."topic" = ? AND "pubsubhubbub_subscriptions"."confirmed" = ? AND (expires_at > '2016-11-27 11:31:42.846706') ORDER BY "pubsubhubbub_subscriptions"."id" ASC LIMIT ?[0m  [["topic", "http://example.com/feed"], ["confirmed", true], ["LIMIT", 1000]]
+[ActiveJob] [Pubsubhubbub::FetchTopicJob] [20fa9b5f-bb51-4283-ab9c-33f80eba5f5d] [Pubsubhubbub::DeliverPayloadJob] [09b191c6-30f7-41b6-a1e3-30ea64bee64c] Performing Pubsubhubbub::DeliverPayloadJob from Inline(push) with arguments: "http://test.host/pubsubhubbub/", 1, "foo"
+[ActiveJob] [Pubsubhubbub::FetchTopicJob] [20fa9b5f-bb51-4283-ab9c-33f80eba5f5d] [Pubsubhubbub::DeliverPayloadJob] [09b191c6-30f7-41b6-a1e3-30ea64bee64c]   [1m[36mPubsubhubbub::Subscription Load (0.1ms)[0m  [1m[34mSELECT  "pubsubhubbub_subscriptions".* FROM "pubsubhubbub_subscriptions" WHERE "pubsubhubbub_subscriptions"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[ActiveJob] [Pubsubhubbub::FetchTopicJob] [20fa9b5f-bb51-4283-ab9c-33f80eba5f5d] [Pubsubhubbub::DeliverPayloadJob] [09b191c6-30f7-41b6-a1e3-30ea64bee64c] Performed Pubsubhubbub::DeliverPayloadJob from Inline(push) in 1.32ms
+[ActiveJob] [Pubsubhubbub::FetchTopicJob] [20fa9b5f-bb51-4283-ab9c-33f80eba5f5d] Performed Pubsubhubbub::FetchTopicJob from Inline(push) in 4.49ms
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.3ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Processing by Pubsubhubbub::SubscriptionsController#index as HTML
+  Parameters: {"hub.callback"=>"http://example.com/callback", "hub.mode"=>"unsubscribe", "hub.topic"=>"http://example.com/feed"}
+  [1m[36mPubsubhubbub::Subscription Load (0.1ms)[0m  [1m[34mSELECT  "pubsubhubbub_subscriptions".* FROM "pubsubhubbub_subscriptions" WHERE "pubsubhubbub_subscriptions"."topic" = ? AND "pubsubhubbub_subscriptions"."callback" = ? ORDER BY "pubsubhubbub_subscriptions"."id" ASC LIMIT ?[0m  [["topic", "http://example.com/feed"], ["callback", "http://example.com/callback"], ["LIMIT", 1]]
+No template found for Pubsubhubbub::SubscriptionsController#index, rendering head :no_content
+Completed 204 No Content in 11ms (ActiveRecord: 0.4ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "pubsubhubbub_subscriptions" ("topic", "callback", "mode", "challenge", "confirmed", "expires_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["topic", "http://example.com/feed"], ["callback", "http://example.com/callback"], ["mode", "subscribe"], ["challenge", "065938410396e52d826b829a5ff7cedd"], ["confirmed", true], ["expires_at", 2016-11-28 11:33:39 UTC], ["created_at", 2016-11-27 11:33:39 UTC], ["updated_at", 2016-11-27 11:33:39 UTC]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by Pubsubhubbub::SubscriptionsController#index as HTML
+  Parameters: {"hub.mode"=>"publish", "hub.url"=>"http://example.com/feed"}
+[ActiveJob] [Pubsubhubbub::FetchTopicJob] [b373db55-a4d8-491e-b7c1-1f47d5792122] Performing Pubsubhubbub::FetchTopicJob from Inline(push) with arguments: "http://test.host/pubsubhubbub/", "http://example.com/feed"
+[ActiveJob] [Pubsubhubbub::FetchTopicJob] [b373db55-a4d8-491e-b7c1-1f47d5792122]   [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "pubsubhubbub_subscriptions" WHERE "pubsubhubbub_subscriptions"."topic" = ? AND "pubsubhubbub_subscriptions"."confirmed" = ? AND (expires_at > '2016-11-27 11:33:39.663008')[0m  [["topic", "http://example.com/feed"], ["confirmed", true]]
+[ActiveJob] [Pubsubhubbub::FetchTopicJob] [b373db55-a4d8-491e-b7c1-1f47d5792122]   [1m[36mPubsubhubbub::Subscription Load (0.1ms)[0m  [1m[34mSELECT  "pubsubhubbub_subscriptions".* FROM "pubsubhubbub_subscriptions" WHERE "pubsubhubbub_subscriptions"."topic" = ? AND "pubsubhubbub_subscriptions"."confirmed" = ? AND (expires_at > '2016-11-27 11:33:39.665059') ORDER BY "pubsubhubbub_subscriptions"."id" ASC LIMIT ?[0m  [["topic", "http://example.com/feed"], ["confirmed", true], ["LIMIT", 1000]]
+[ActiveJob] [Pubsubhubbub::FetchTopicJob] [b373db55-a4d8-491e-b7c1-1f47d5792122] [Pubsubhubbub::DeliverPayloadJob] [cfe62445-b2e5-43fe-9410-0d6682c3722d] Performing Pubsubhubbub::DeliverPayloadJob from Inline(push) with arguments: "http://test.host/pubsubhubbub/", 1, "foo"
+[ActiveJob] [Pubsubhubbub::FetchTopicJob] [b373db55-a4d8-491e-b7c1-1f47d5792122] [Pubsubhubbub::DeliverPayloadJob] [cfe62445-b2e5-43fe-9410-0d6682c3722d]   [1m[36mPubsubhubbub::Subscription Load (0.1ms)[0m  [1m[34mSELECT  "pubsubhubbub_subscriptions".* FROM "pubsubhubbub_subscriptions" WHERE "pubsubhubbub_subscriptions"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[ActiveJob] [Pubsubhubbub::FetchTopicJob] [b373db55-a4d8-491e-b7c1-1f47d5792122] [Pubsubhubbub::DeliverPayloadJob] [cfe62445-b2e5-43fe-9410-0d6682c3722d] Performed Pubsubhubbub::DeliverPayloadJob from Inline(push) in 2.01ms
+[ActiveJob] [Pubsubhubbub::FetchTopicJob] [b373db55-a4d8-491e-b7c1-1f47d5792122] Enqueued Pubsubhubbub::DeliverPayloadJob (Job ID: cfe62445-b2e5-43fe-9410-0d6682c3722d) to Inline(push) with arguments: "http://test.host/pubsubhubbub/", 1, "foo"
+[ActiveJob] [Pubsubhubbub::FetchTopicJob] [b373db55-a4d8-491e-b7c1-1f47d5792122] Performed Pubsubhubbub::FetchTopicJob from Inline(push) in 7.34ms
+[ActiveJob] Enqueued Pubsubhubbub::FetchTopicJob (Job ID: b373db55-a4d8-491e-b7c1-1f47d5792122) to Inline(push) with arguments: "http://test.host/pubsubhubbub/", "http://example.com/feed"
+Completed 202 Accepted in 14ms (ActiveRecord: 0.3ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Processing by Pubsubhubbub::SubscriptionsController#index as HTML
+  Parameters: {"hub.callback"=>"http://example.com/callback", "hub.mode"=>"subscribe", "hub.topic"=>"http://example.com/feed"}
+  [1m[36mPubsubhubbub::Subscription Load (0.0ms)[0m  [1m[34mSELECT  "pubsubhubbub_subscriptions".* FROM "pubsubhubbub_subscriptions" WHERE "pubsubhubbub_subscriptions"."topic" = ? AND "pubsubhubbub_subscriptions"."callback" = ? ORDER BY "pubsubhubbub_subscriptions"."id" ASC LIMIT ?[0m  [["topic", "http://example.com/feed"], ["callback", "http://example.com/callback"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "pubsubhubbub_subscriptions" ("topic", "callback", "mode", "challenge", "expires_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["topic", "http://example.com/feed"], ["callback", "http://example.com/callback"], ["mode", "subscribe"], ["challenge", "09849260121ffd8dd0215bd19a1f6c6f"], ["expires_at", 2016-11-28 11:33:39 UTC], ["created_at", 2016-11-27 11:33:39 UTC], ["updated_at", 2016-11-27 11:33:39 UTC]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[ActiveJob] [Pubsubhubbub::VerifyIntentJob] [05c85963-3138-41c3-9ce1-231fc116a4fa] Performing Pubsubhubbub::VerifyIntentJob from Inline(push) with arguments: 1
+[ActiveJob] [Pubsubhubbub::VerifyIntentJob] [05c85963-3138-41c3-9ce1-231fc116a4fa]   [1m[36mPubsubhubbub::Subscription Load (0.0ms)[0m  [1m[34mSELECT  "pubsubhubbub_subscriptions".* FROM "pubsubhubbub_subscriptions" WHERE "pubsubhubbub_subscriptions"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[ActiveJob] [Pubsubhubbub::VerifyIntentJob] [05c85963-3138-41c3-9ce1-231fc116a4fa]   [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[ActiveJob] [Pubsubhubbub::VerifyIntentJob] [05c85963-3138-41c3-9ce1-231fc116a4fa]   [1m[35mSQL (0.1ms)[0m  [1m[33mUPDATE "pubsubhubbub_subscriptions" SET "challenge" = ?, "confirmed" = ?, "updated_at" = ? WHERE "pubsubhubbub_subscriptions"."id" = ?[0m  [["challenge", "455080dace3994b0a5e2eaf19a56bf03"], ["confirmed", true], ["updated_at", 2016-11-27 11:33:39 UTC], ["id", 1]]
+[ActiveJob] [Pubsubhubbub::VerifyIntentJob] [05c85963-3138-41c3-9ce1-231fc116a4fa]   [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[ActiveJob] [Pubsubhubbub::VerifyIntentJob] [05c85963-3138-41c3-9ce1-231fc116a4fa] Performed Pubsubhubbub::VerifyIntentJob from Inline(push) in 4.0ms
+[ActiveJob] Enqueued Pubsubhubbub::VerifyIntentJob (Job ID: 05c85963-3138-41c3-9ce1-231fc116a4fa) to Inline(push) with arguments: 1
+Completed 202 Accepted in 7ms (ActiveRecord: 0.4ms)
+  [1m[36mPubsubhubbub::Subscription Load (0.1ms)[0m  [1m[34mSELECT  "pubsubhubbub_subscriptions".* FROM "pubsubhubbub_subscriptions" WHERE "pubsubhubbub_subscriptions"."topic" = ? ORDER BY "pubsubhubbub_subscriptions"."id" ASC LIMIT ?[0m  [["topic", "http://example.com/feed"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Processing by Pubsubhubbub::SubscriptionsController#index as HTML
+  Parameters: {"hub.callback"=>"http://example.com/callback", "hub.mode"=>"subscribe", "hub.topic"=>"http://example.com/feed"}
+  [1m[36mPubsubhubbub::Subscription Load (0.0ms)[0m  [1m[34mSELECT  "pubsubhubbub_subscriptions".* FROM "pubsubhubbub_subscriptions" WHERE "pubsubhubbub_subscriptions"."topic" = ? AND "pubsubhubbub_subscriptions"."callback" = ? ORDER BY "pubsubhubbub_subscriptions"."id" ASC LIMIT ?[0m  [["topic", "http://example.com/feed"], ["callback", "http://example.com/callback"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "pubsubhubbub_subscriptions" ("topic", "callback", "mode", "challenge", "expires_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["topic", "http://example.com/feed"], ["callback", "http://example.com/callback"], ["mode", "subscribe"], ["challenge", "1a47e11729baa63763c328729faef748"], ["expires_at", 2016-11-28 11:33:39 UTC], ["created_at", 2016-11-27 11:33:39 UTC], ["updated_at", 2016-11-27 11:33:39 UTC]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[ActiveJob] [Pubsubhubbub::VerifyIntentJob] [90b72af0-d38d-40ec-a804-28a2fc0e2b74] Performing Pubsubhubbub::VerifyIntentJob from Inline(push) with arguments: 1
+[ActiveJob] [Pubsubhubbub::VerifyIntentJob] [90b72af0-d38d-40ec-a804-28a2fc0e2b74]   [1m[36mPubsubhubbub::Subscription Load (0.0ms)[0m  [1m[34mSELECT  "pubsubhubbub_subscriptions".* FROM "pubsubhubbub_subscriptions" WHERE "pubsubhubbub_subscriptions"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[ActiveJob] [Pubsubhubbub::VerifyIntentJob] [90b72af0-d38d-40ec-a804-28a2fc0e2b74]   [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[ActiveJob] [Pubsubhubbub::VerifyIntentJob] [90b72af0-d38d-40ec-a804-28a2fc0e2b74]   [1m[35mSQL (0.1ms)[0m  [1m[33mUPDATE "pubsubhubbub_subscriptions" SET "challenge" = ?, "confirmed" = ?, "updated_at" = ? WHERE "pubsubhubbub_subscriptions"."id" = ?[0m  [["challenge", "412bf303e56436761fade7e4c6bf76b4"], ["confirmed", true], ["updated_at", 2016-11-27 11:33:39 UTC], ["id", 1]]
+[ActiveJob] [Pubsubhubbub::VerifyIntentJob] [90b72af0-d38d-40ec-a804-28a2fc0e2b74]   [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[ActiveJob] [Pubsubhubbub::VerifyIntentJob] [90b72af0-d38d-40ec-a804-28a2fc0e2b74] Performed Pubsubhubbub::VerifyIntentJob from Inline(push) in 2.86ms
+[ActiveJob] Enqueued Pubsubhubbub::VerifyIntentJob (Job ID: 90b72af0-d38d-40ec-a804-28a2fc0e2b74) to Inline(push) with arguments: 1
+Completed 202 Accepted in 6ms (ActiveRecord: 0.3ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Processing by Pubsubhubbub::SubscriptionsController#index as HTML
+  Parameters: {"hub.callback"=>"http://example.com/callback", "hub.mode"=>"subscribe", "hub.topic"=>"http://example.com/feed"}
+  [1m[36mPubsubhubbub::Subscription Load (0.1ms)[0m  [1m[34mSELECT  "pubsubhubbub_subscriptions".* FROM "pubsubhubbub_subscriptions" WHERE "pubsubhubbub_subscriptions"."topic" = ? AND "pubsubhubbub_subscriptions"."callback" = ? ORDER BY "pubsubhubbub_subscriptions"."id" ASC LIMIT ?[0m  [["topic", "http://example.com/feed"], ["callback", "http://example.com/callback"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "pubsubhubbub_subscriptions" ("topic", "callback", "mode", "challenge", "expires_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["topic", "http://example.com/feed"], ["callback", "http://example.com/callback"], ["mode", "subscribe"], ["challenge", "eaa163fcd59c6ffc6633d86d22fc8c91"], ["expires_at", 2016-11-28 11:35:26 UTC], ["created_at", 2016-11-27 11:35:26 UTC], ["updated_at", 2016-11-27 11:35:26 UTC]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[ActiveJob] [Pubsubhubbub::VerifyIntentJob] [c03f7c96-0e13-4627-83d2-350fdf8c646c] Performing Pubsubhubbub::VerifyIntentJob from Inline(push) with arguments: 1
+[ActiveJob] [Pubsubhubbub::VerifyIntentJob] [c03f7c96-0e13-4627-83d2-350fdf8c646c]   [1m[36mPubsubhubbub::Subscription Load (0.1ms)[0m  [1m[34mSELECT  "pubsubhubbub_subscriptions".* FROM "pubsubhubbub_subscriptions" WHERE "pubsubhubbub_subscriptions"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[ActiveJob] [Pubsubhubbub::VerifyIntentJob] [c03f7c96-0e13-4627-83d2-350fdf8c646c]   [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[ActiveJob] [Pubsubhubbub::VerifyIntentJob] [c03f7c96-0e13-4627-83d2-350fdf8c646c]   [1m[35mSQL (0.1ms)[0m  [1m[33mUPDATE "pubsubhubbub_subscriptions" SET "challenge" = ?, "confirmed" = ?, "updated_at" = ? WHERE "pubsubhubbub_subscriptions"."id" = ?[0m  [["challenge", "e4e0781f56383eb4c3eabc752541d910"], ["confirmed", true], ["updated_at", 2016-11-27 11:35:26 UTC], ["id", 1]]
+[ActiveJob] [Pubsubhubbub::VerifyIntentJob] [c03f7c96-0e13-4627-83d2-350fdf8c646c]   [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[ActiveJob] [Pubsubhubbub::VerifyIntentJob] [c03f7c96-0e13-4627-83d2-350fdf8c646c] Performed Pubsubhubbub::VerifyIntentJob from Inline(push) in 6.59ms
+[ActiveJob] Enqueued Pubsubhubbub::VerifyIntentJob (Job ID: c03f7c96-0e13-4627-83d2-350fdf8c646c) to Inline(push) with arguments: 1
+Completed 202 Accepted in 22ms (ActiveRecord: 0.9ms)
+  [1m[36mPubsubhubbub::Subscription Load (0.1ms)[0m  [1m[34mSELECT  "pubsubhubbub_subscriptions".* FROM "pubsubhubbub_subscriptions" WHERE "pubsubhubbub_subscriptions"."topic" = ? ORDER BY "pubsubhubbub_subscriptions"."id" ASC LIMIT ?[0m  [["topic", "http://example.com/feed"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Processing by Pubsubhubbub::SubscriptionsController#index as HTML
+  Parameters: {"hub.callback"=>"http://example.com/callback", "hub.mode"=>"subscribe", "hub.topic"=>"http://example.com/feed"}
+  [1m[36mPubsubhubbub::Subscription Load (0.0ms)[0m  [1m[34mSELECT  "pubsubhubbub_subscriptions".* FROM "pubsubhubbub_subscriptions" WHERE "pubsubhubbub_subscriptions"."topic" = ? AND "pubsubhubbub_subscriptions"."callback" = ? ORDER BY "pubsubhubbub_subscriptions"."id" ASC LIMIT ?[0m  [["topic", "http://example.com/feed"], ["callback", "http://example.com/callback"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "pubsubhubbub_subscriptions" ("topic", "callback", "mode", "challenge", "expires_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["topic", "http://example.com/feed"], ["callback", "http://example.com/callback"], ["mode", "subscribe"], ["challenge", "887d72fa039e6ef861f2b7b24dd059dd"], ["expires_at", 2016-11-28 11:35:26 UTC], ["created_at", 2016-11-27 11:35:26 UTC], ["updated_at", 2016-11-27 11:35:26 UTC]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[ActiveJob] [Pubsubhubbub::VerifyIntentJob] [2e0980a8-ad9c-4d60-8e69-a42c4d284f41] Performing Pubsubhubbub::VerifyIntentJob from Inline(push) with arguments: 1
+[ActiveJob] [Pubsubhubbub::VerifyIntentJob] [2e0980a8-ad9c-4d60-8e69-a42c4d284f41]   [1m[36mPubsubhubbub::Subscription Load (0.0ms)[0m  [1m[34mSELECT  "pubsubhubbub_subscriptions".* FROM "pubsubhubbub_subscriptions" WHERE "pubsubhubbub_subscriptions"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[ActiveJob] [Pubsubhubbub::VerifyIntentJob] [2e0980a8-ad9c-4d60-8e69-a42c4d284f41]   [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[ActiveJob] [Pubsubhubbub::VerifyIntentJob] [2e0980a8-ad9c-4d60-8e69-a42c4d284f41]   [1m[35mSQL (0.1ms)[0m  [1m[33mUPDATE "pubsubhubbub_subscriptions" SET "challenge" = ?, "confirmed" = ?, "updated_at" = ? WHERE "pubsubhubbub_subscriptions"."id" = ?[0m  [["challenge", "5664889b2578ebc35dde839aa2333182"], ["confirmed", true], ["updated_at", 2016-11-27 11:35:26 UTC], ["id", 1]]
+[ActiveJob] [Pubsubhubbub::VerifyIntentJob] [2e0980a8-ad9c-4d60-8e69-a42c4d284f41]   [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[ActiveJob] [Pubsubhubbub::VerifyIntentJob] [2e0980a8-ad9c-4d60-8e69-a42c4d284f41] Performed Pubsubhubbub::VerifyIntentJob from Inline(push) in 3.14ms
+[ActiveJob] Enqueued Pubsubhubbub::VerifyIntentJob (Job ID: 2e0980a8-ad9c-4d60-8e69-a42c4d284f41) to Inline(push) with arguments: 1
+Completed 202 Accepted in 7ms (ActiveRecord: 0.4ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Processing by Pubsubhubbub::SubscriptionsController#index as HTML
+  Parameters: {"hub.callback"=>"http://example.com/callback", "hub.mode"=>"unsubscribe", "hub.topic"=>"http://example.com/feed"}
+  [1m[36mPubsubhubbub::Subscription Load (0.0ms)[0m  [1m[34mSELECT  "pubsubhubbub_subscriptions".* FROM "pubsubhubbub_subscriptions" WHERE "pubsubhubbub_subscriptions"."topic" = ? AND "pubsubhubbub_subscriptions"."callback" = ? ORDER BY "pubsubhubbub_subscriptions"."id" ASC LIMIT ?[0m  [["topic", "http://example.com/feed"], ["callback", "http://example.com/callback"], ["LIMIT", 1]]
+No template found for Pubsubhubbub::SubscriptionsController#index, rendering head :no_content
+Completed 204 No Content in 7ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "pubsubhubbub_subscriptions" ("topic", "callback", "mode", "challenge", "confirmed", "expires_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["topic", "http://example.com/feed"], ["callback", "http://example.com/callback"], ["mode", "subscribe"], ["challenge", "3c8dbd704860d388d9363a4dbd279c45"], ["confirmed", true], ["expires_at", 2016-11-28 11:35:26 UTC], ["created_at", 2016-11-27 11:35:26 UTC], ["updated_at", 2016-11-27 11:35:26 UTC]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by Pubsubhubbub::SubscriptionsController#index as HTML
+  Parameters: {"hub.mode"=>"publish", "hub.url"=>"http://example.com/feed"}
+[ActiveJob] [Pubsubhubbub::FetchTopicJob] [50660540-1600-484f-8b65-44210d7db7e2] Performing Pubsubhubbub::FetchTopicJob from Inline(push) with arguments: "http://test.host/pubsubhubbub/", "http://example.com/feed"
+[ActiveJob] [Pubsubhubbub::FetchTopicJob] [50660540-1600-484f-8b65-44210d7db7e2]   [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "pubsubhubbub_subscriptions" WHERE "pubsubhubbub_subscriptions"."topic" = ? AND "pubsubhubbub_subscriptions"."confirmed" = ? AND (expires_at > '2016-11-27 11:35:26.098045')[0m  [["topic", "http://example.com/feed"], ["confirmed", true]]
+[ActiveJob] [Pubsubhubbub::FetchTopicJob] [50660540-1600-484f-8b65-44210d7db7e2]   [1m[36mPubsubhubbub::Subscription Load (0.1ms)[0m  [1m[34mSELECT  "pubsubhubbub_subscriptions".* FROM "pubsubhubbub_subscriptions" WHERE "pubsubhubbub_subscriptions"."topic" = ? AND "pubsubhubbub_subscriptions"."confirmed" = ? AND (expires_at > '2016-11-27 11:35:26.099794') ORDER BY "pubsubhubbub_subscriptions"."id" ASC LIMIT ?[0m  [["topic", "http://example.com/feed"], ["confirmed", true], ["LIMIT", 1000]]
+[ActiveJob] [Pubsubhubbub::FetchTopicJob] [50660540-1600-484f-8b65-44210d7db7e2] [Pubsubhubbub::DeliverPayloadJob] [d7a88416-10c6-4b9e-ba68-4cb1b9379af0] Performing Pubsubhubbub::DeliverPayloadJob from Inline(push) with arguments: "http://test.host/pubsubhubbub/", 1, "foo"
+[ActiveJob] [Pubsubhubbub::FetchTopicJob] [50660540-1600-484f-8b65-44210d7db7e2] [Pubsubhubbub::DeliverPayloadJob] [d7a88416-10c6-4b9e-ba68-4cb1b9379af0]   [1m[36mPubsubhubbub::Subscription Load (0.1ms)[0m  [1m[34mSELECT  "pubsubhubbub_subscriptions".* FROM "pubsubhubbub_subscriptions" WHERE "pubsubhubbub_subscriptions"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[ActiveJob] [Pubsubhubbub::FetchTopicJob] [50660540-1600-484f-8b65-44210d7db7e2] [Pubsubhubbub::DeliverPayloadJob] [d7a88416-10c6-4b9e-ba68-4cb1b9379af0] Performed Pubsubhubbub::DeliverPayloadJob from Inline(push) in 1.3ms
+[ActiveJob] [Pubsubhubbub::FetchTopicJob] [50660540-1600-484f-8b65-44210d7db7e2] Enqueued Pubsubhubbub::DeliverPayloadJob (Job ID: d7a88416-10c6-4b9e-ba68-4cb1b9379af0) to Inline(push) with arguments: "http://test.host/pubsubhubbub/", 1, "foo"
+[ActiveJob] [Pubsubhubbub::FetchTopicJob] [50660540-1600-484f-8b65-44210d7db7e2] Performed Pubsubhubbub::FetchTopicJob from Inline(push) in 4.52ms
+[ActiveJob] Enqueued Pubsubhubbub::FetchTopicJob (Job ID: 50660540-1600-484f-8b65-44210d7db7e2) to Inline(push) with arguments: "http://test.host/pubsubhubbub/", "http://example.com/feed"
+Completed 202 Accepted in 6ms (ActiveRecord: 0.2ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "pubsubhubbub_subscriptions" ("topic", "callback", "mode", "challenge", "confirmed", "expires_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["topic", "http://example.com/feed"], ["callback", "http://example.com/callback"], ["mode", "subscribe"], ["challenge", "65f5785c51c3e245934844057ad9bd4c"], ["confirmed", true], ["expires_at", 2016-11-28 11:35:26 UTC], ["created_at", 2016-11-27 11:35:26 UTC], ["updated_at", 2016-11-27 11:35:26 UTC]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by Pubsubhubbub::SubscriptionsController#index as HTML
+  Parameters: {"hub.mode"=>"publish", "hub.url"=>"http://example.com/feed"}
+[ActiveJob] [Pubsubhubbub::FetchTopicJob] [fb24fff5-e125-4026-be3b-e421cfc6f0e5] Performing Pubsubhubbub::FetchTopicJob from Inline(push) with arguments: "http://test.host/pubsubhubbub/", "http://example.com/feed"
+[ActiveJob] [Pubsubhubbub::FetchTopicJob] [fb24fff5-e125-4026-be3b-e421cfc6f0e5]   [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "pubsubhubbub_subscriptions" WHERE "pubsubhubbub_subscriptions"."topic" = ? AND "pubsubhubbub_subscriptions"."confirmed" = ? AND (expires_at > '2016-11-27 11:35:26.105837')[0m  [["topic", "http://example.com/feed"], ["confirmed", true]]
+[ActiveJob] [Pubsubhubbub::FetchTopicJob] [fb24fff5-e125-4026-be3b-e421cfc6f0e5]   [1m[36mPubsubhubbub::Subscription Load (0.1ms)[0m  [1m[34mSELECT  "pubsubhubbub_subscriptions".* FROM "pubsubhubbub_subscriptions" WHERE "pubsubhubbub_subscriptions"."topic" = ? AND "pubsubhubbub_subscriptions"."confirmed" = ? AND (expires_at > '2016-11-27 11:35:26.107324') ORDER BY "pubsubhubbub_subscriptions"."id" ASC LIMIT ?[0m  [["topic", "http://example.com/feed"], ["confirmed", true], ["LIMIT", 1000]]
+[ActiveJob] [Pubsubhubbub::FetchTopicJob] [fb24fff5-e125-4026-be3b-e421cfc6f0e5] [Pubsubhubbub::DeliverPayloadJob] [91d1931b-e7c6-4a36-9692-0ca4bb9adefe] Performing Pubsubhubbub::DeliverPayloadJob from Inline(push) with arguments: "http://test.host/pubsubhubbub/", 1, "foo"
+[ActiveJob] [Pubsubhubbub::FetchTopicJob] [fb24fff5-e125-4026-be3b-e421cfc6f0e5] [Pubsubhubbub::DeliverPayloadJob] [91d1931b-e7c6-4a36-9692-0ca4bb9adefe]   [1m[36mPubsubhubbub::Subscription Load (0.1ms)[0m  [1m[34mSELECT  "pubsubhubbub_subscriptions".* FROM "pubsubhubbub_subscriptions" WHERE "pubsubhubbub_subscriptions"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[ActiveJob] [Pubsubhubbub::FetchTopicJob] [fb24fff5-e125-4026-be3b-e421cfc6f0e5] [Pubsubhubbub::DeliverPayloadJob] [91d1931b-e7c6-4a36-9692-0ca4bb9adefe] Performed Pubsubhubbub::DeliverPayloadJob from Inline(push) in 1.69ms
+[ActiveJob] [Pubsubhubbub::FetchTopicJob] [fb24fff5-e125-4026-be3b-e421cfc6f0e5] Enqueued Pubsubhubbub::DeliverPayloadJob (Job ID: 91d1931b-e7c6-4a36-9692-0ca4bb9adefe) to Inline(push) with arguments: "http://test.host/pubsubhubbub/", 1, "foo"
+[ActiveJob] [Pubsubhubbub::FetchTopicJob] [fb24fff5-e125-4026-be3b-e421cfc6f0e5] Performed Pubsubhubbub::FetchTopicJob from Inline(push) in 4.36ms
+[ActiveJob] Enqueued Pubsubhubbub::FetchTopicJob (Job ID: fb24fff5-e125-4026-be3b-e421cfc6f0e5) to Inline(push) with arguments: "http://test.host/pubsubhubbub/", "http://example.com/feed"
+Completed 202 Accepted in 5ms (ActiveRecord: 0.2ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m

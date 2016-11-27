@@ -9,7 +9,7 @@ module Pubsubhubbub
       link         = LinkHeader.new([[hub_url, [%w(rel hub)]], [subscription.topic, [%w(rel self)]]])
       headers      = {}
 
-      headers['Link']            = link
+      headers['Link']            = link.to_s
       headers['X-Hub-Signature'] = sign_payload(subscription.secret, current_payload) if subscription.secret
 
       response = HTTP.timeout(:per_operation, write: 60, connect: 20, read: 60)

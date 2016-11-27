@@ -80,9 +80,4 @@ Rails/HasAndBelongsToMany:
 AllCops:
   TargetRubyVersion: 2.3
   Exclude:
-  - 'spec/**/*'
-  - 'db/**/*'
-  - 'app/views/**/*'
-  - 'config/**/*'
   - 'bin/*'
-  - 'Rakefile'

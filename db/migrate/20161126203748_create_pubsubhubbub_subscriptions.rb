@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class CreatePubsubhubbubSubscriptions < ActiveRecord::Migration[5.0]
   def change
     create_table :pubsubhubbub_subscriptions do |t|

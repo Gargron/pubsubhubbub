@@ -40,10 +40,10 @@ module Pubsubhubbub
       xml = Nokogiri::XML(response.body)
       xml.encoding = 'utf-8'
 
-      link  = xml.at_xpath('//xmlns:link[@rel="hub"]')
-      topic = xml.at_xpath('//xmlns:link[@rel="self"]')
+      link  = xml.at_xpath('//xmlns:link[@rel="hub"]', xmlns: XMLNS)
+      topic = xml.at_xpath('//xmlns:link[@rel="self"]', xmlns: XMLNS)
 
-      link['href'] == hub_url && topic['href'] == @topic
+      link&.attribute('href')&.value == hub_url && topic&.attribute('href')&.value == @topic
     end
 
     def subscribe
