@@ -16,4 +16,5 @@ module Pubsubhubbub
   end
 
   mattr_accessor :verify_topic
+  mattr_accessor :render_topic
 end

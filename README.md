@@ -28,6 +28,12 @@ If you want to override topic verification (which is done before subscribe/unsub
 Pubsubhubbub.verify_topic = lambda { |topic_url| topic_url == 'http://mysite.com/my-feed' }
 ```
 
+You can also override the fetching of the topic when it is updated, for example if it's generally not publicly accessible or if you generate the feed from the Rails app where you mounted the hub.
+
+```ruby
+Pubsubhubbub.render_topic = lambda { |topic_url| FeedsController.render(:show) }
+```
+
 ## Installation
 Add this line to your application's Gemfile:
 
