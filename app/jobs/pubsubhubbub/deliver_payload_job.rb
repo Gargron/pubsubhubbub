@@ -22,7 +22,8 @@ module Pubsubhubbub
     private
 
     def sign_payload(secret, payload)
-      OpenSSL::HMAC.digest(OpenSSL::Digest.new('sha1'), secret, payload)
+      hmac = OpenSSL::HMAC.hexdigest(OpenSSL::Digest.new('sha1'), secret, payload)
+      "sha1=#{hmac}"
     end
   end
 end
