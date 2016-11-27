@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    pubsubhubbub-rails (0.2.0)
+    pubsubhubbub-rails (0.2.1)
       addressable (~> 2.4)
       http (~> 2.0)
       link_header (~> 0.0)
@@ -58,7 +58,7 @@ GEM
     crack (0.4.3)
       safe_yaml (~> 1.0.0)
     diff-lcs (1.2.5)
-    domain_name (0.5.20160826)
+    domain_name (0.5.20161021)
       unf (>= 0.0.5, < 1.0.0)
     erubis (2.7.0)
     fuubar (2.1.1)
@@ -67,7 +67,7 @@ GEM
     globalid (0.3.7)
       activesupport (>= 4.1.0)
     hashdiff (0.3.0)
-    http (2.0.3)
+    http (2.1.0)
       addressable (~> 2.3)
       http-cookie (~> 1.0)
       http-form_data (~> 1.0.1)

@@ -14,4 +14,6 @@ module Pubsubhubbub
 
   class ValidationError < StandardError
   end
+
+  mattr_accessor :verify_topic
 end

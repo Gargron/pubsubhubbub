@@ -30,6 +30,8 @@ module Pubsubhubbub
     private
 
     def check_topic_hub!
+      return Pubsubhubbub.verify_topic.call(@topic) if Pubsubhubbub.verify_topic.is_a?(Proc)
+
       uri      = Addressable::URI.parse(@topic)
       response = HTTP.get(uri)
 
