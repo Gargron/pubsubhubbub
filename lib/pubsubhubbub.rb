@@ -17,4 +17,8 @@ module Pubsubhubbub
 
   mattr_accessor :verify_topic
   mattr_accessor :render_topic
+
+  def self.publish(hub_url, topic_url)
+    FetchTopicJob.perform_later(hub_url, topic_url)
+  end
 end
