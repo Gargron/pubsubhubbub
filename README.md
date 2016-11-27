@@ -34,6 +34,12 @@ You can also override the fetching of the topic when it is updated, for example 
 Pubsubhubbub.render_topic = lambda { |topic_url| FeedsController.render(:show) }
 ```
 
+If you want to notify the subscribers without hitting the `/pubsubhubbub` HTTP endpoint, there's a convenience method you can use right from your app:
+
+```ruby
+Pubsubhubbub.publish(pubsubhubbub_url, feed_url(user))
+```
+
 ## Installation
 Add this line to your application's Gemfile:
 
