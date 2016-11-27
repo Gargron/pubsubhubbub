@@ -24,7 +24,7 @@ module Pubsubhubbub
   module Utils
     def http_client
       HTTP.timeout(:per_operation, write: 30, connect: 20, read: 30)
-          .headers(user_agent: "PubSubHubbub/#{Pubsubhubbub::VERSION}")
+          .headers(user_agent: "PubSubHubbub/#{VERSION}")
     end
   end
 end

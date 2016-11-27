@@ -9,5 +9,6 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'fuubar'
   gem 'webmock'
+  gem 'httplog'
   gem 'rubocop', require: false
 end
