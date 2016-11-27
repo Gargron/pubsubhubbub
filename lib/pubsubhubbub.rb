@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 require 'pubsubhubbub/engine'
+require 'pubsubhubbub/version'
 require 'addressable/uri'
 require 'nokogiri'
 require 'http'
@@ -24,7 +25,7 @@ module Pubsubhubbub
   module Utils
     def http_client
       HTTP.timeout(:per_operation, write: 30, connect: 20, read: 30)
-          .headers(user_agent: "PubSubHubbub/#{VERSION}")
+          .headers(user_agent: "PubSubHubbub/#{Pubsubhubbub::VERSION}")
     end
   end
 end
