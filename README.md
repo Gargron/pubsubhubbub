@@ -12,11 +12,21 @@ This is a mountable PubSubHubbub server conforming to the v0.4 of the spec.
 
 In `routes.rb`:
 
-    mount Pubsubhubbub::Engine, at: 'pubsubhubbub', as: :pubsubhubbub
+```ruby
+mount Pubsubhubbub::Engine, at: 'pubsubhubbub', as: :pubsubhubbub
+```
 
 In feed:
 
-    <link rel="hub" href="<%= pubsubhubbub_url %>" />
+```erb
+<link rel="hub" href="<%= pubsubhubbub_url %>" />
+```
+
+If you want to override topic verification (which is done before subscribe/unsubscribe events to confirm that the topic is in fact using the hub), you can add a custom initializer, e.g. `config/initializers/pubsubhubbub.rb`:
+
+```ruby
+Pubsubhubbub.verify_topic = lambda { |topic_url| topic_url == 'http://mysite.com/my-feed' }
+```
 
 ## Installation
 Add this line to your application's Gemfile:
