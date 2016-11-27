@@ -58,7 +58,9 @@ module Pubsubhubbub
       raise ValidationError, 'Missing topic URL' if @topic.blank?
       check_topic_hub!
 
-      @subscription = Subscription.where(topic: @topic, callback: @callback).first_or_initialize(topic: @topic, callback: @callback, mode: @mode, secret: @secret)
+      @subscription = Subscription.where(topic: @topic, callback: @callback).first_or_initialize(topic: @topic, callback: @callback)
+      @subscription.mode          = @mode
+      @subscription.secret        = @secret
       @subscription.lease_seconds = @lease_seconds
       @subscription.save!
 
