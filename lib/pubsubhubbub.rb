@@ -11,4 +11,7 @@ module Pubsubhubbub
 
   class FailedDeliveryError < StandardError
   end
+
+  class ValidationError < StandardError
+  end
 end

@@ -3,6 +3,10 @@ require_dependency 'pubsubhubbub/application_controller'
 
 module Pubsubhubbub
   class SubscriptionsController < ApplicationController
+    rescue_from ValidationError do |msg|
+      render plain: msg, status: :unprocessable_entity
+    end
+
     def index
       @callback      = params['hub.callback']
       @mode          = params['hub.mode']
@@ -19,13 +23,13 @@ module Pubsubhubbub
       when 'publish'
         publish
       else
-        render plain: 'Unknown mode', status: :unprocessable_entity
+        raise ValidationError, "Unknown mode: #{@mode}"
       end
     end
 
     private
 
-    def check_topic_hub
+    def check_topic_hub!
       uri      = Addressable::URI.parse(@topic)
       response = HTTP.get(uri)
 
@@ -34,7 +38,7 @@ module Pubsubhubbub
         hub   = link.find_link(%w(rel hub))
         topic = link.find_link(%w(rel self))
 
-        return true if hub&.href == hub_url && topic&.href == @topic
+        return if hub&.href&.chomp('\\') == hub_url.chomp('\\') && topic&.href&.chomp('\\') == @topic.chomp('\\')
       end
 
       xml = Nokogiri::XML(response.body)
@@ -43,13 +47,14 @@ module Pubsubhubbub
       link  = xml.at_xpath('//xmlns:link[@rel="hub"]', xmlns: XMLNS)
       topic = xml.at_xpath('//xmlns:link[@rel="self"]', xmlns: XMLNS)
 
-      link&.attribute('href')&.value == hub_url && topic&.attribute('href')&.value == @topic
+      raise ValidationError, "Topic advertises different hub: #{link&.attribute('href')&.value}"   if link&.attribute('href')&.value&.chomp('\\')  != hub_url.chomp('\\')
+      raise ValidationError, "Topic advertises different self: #{topic&.attribute('href')&.value}" if topic&.attribute('href')&.value&.chomp('\\') != @topic.chomp('\\')
     end
 
     def subscribe
-      render(plain: 'Missing callback URL', status: :unprocessable_entity) && return if @callback.blank?
-      render(plain: 'Missing topic URL', status: :unprocessable_entity) && return if @topic.blank?
-      render(plain: 'Topic advertises a different hub or topic URL', status: :unprocessable_entity) && return unless check_topic_hub
+      raise ValidationError, 'Missing callback URL' if @callback.blank?
+      raise ValidationError, 'Missing topic URL' if @topic.blank?
+      check_topic_hub!
 
       @subscription = Subscription.where(topic: @topic, callback: @callback).first_or_initialize(topic: @topic, callback: @callback, mode: @mode, secret: @secret)
       @subscription.lease_seconds = @lease_seconds
@@ -61,9 +66,9 @@ module Pubsubhubbub
     end
 
     def unsubscribe
-      render(plain: 'Missing callback URL', status: :unprocessable_entity) && return if @callback.blank?
-      render(plain: 'Missing topic URL', status: :unprocessable_entity) && return if @topic.blank?
-      render(plain: 'Topic advertises a different hub or topic URL', status: :unprocessable_entity) && return unless check_topic_hub
+      raise ValidationError, 'Missing callback URL' if @callback.blank?
+      raise ValidationError, 'Missing topic URL' if @topic.blank?
+      check_topic_hub!
 
       @subscription = Subscription.where(topic: @topic, callback: @callback).first
 
@@ -77,7 +82,7 @@ module Pubsubhubbub
     end
 
     def publish
-      render(plain: 'Missing URL', status: :unprocessable_entity) && return if @url.blank?
+      raise ValidationError, 'Missing URL' if @url.blank?
       FetchTopicJob.perform_later(hub_url, @url)
       head 202
     end
